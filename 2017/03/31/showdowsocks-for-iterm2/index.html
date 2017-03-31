@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="使用Shadowsocks为macOS终端或Iterm2“翻墙”"/>
+
+
+
+
+  <meta name="keywords" content="Shadowsocks,Iterm2,macOS," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Bravist">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://chenghuiyong.com/2017/03/31/showdowsocks-for-iterm2/"/>
+
+
+<meta name="description" content="随着Web前端框架（Bootstrap 、React、Vue.js）、工具（Gulp自动化任务、Browsersync 浏览器同步、Babel：JavaScript 编译工具、Webpack：模块打包）、模块的盛行，前端开发也越来越偏工程化。http://npmjs.org 号称已经是世界上最大的包管理仓库，在国内，要安装这些依赖包，经常会出现502连接超时情况。
+作为一个有志向的程序猿，更好地使">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Shadowsocks为macOS终端或Iterm2“翻墙”">
+<meta property="og:url" content="http://chenghuiyong.com/2017/03/31/showdowsocks-for-iterm2/index.html">
+<meta property="og:site_name" content="Bravist">
+<meta property="og:description" content="随着Web前端框架（Bootstrap 、React、Vue.js）、工具（Gulp自动化任务、Browsersync 浏览器同步、Babel：JavaScript 编译工具、Webpack：模块打包）、模块的盛行，前端开发也越来越偏工程化。http://npmjs.org 号称已经是世界上最大的包管理仓库，在国内，要安装这些依赖包，经常会出现502连接超时情况。
+作为一个有志向的程序猿，更好地使">
+<meta property="og:image" content="http://www.banwagong.me/zb_users/upload/2017/03/201703141489460076791321.jpg">
+<meta property="og:image" content="http://on1pvbk2n.bkt.clouddn.com/ping.png">
+<meta property="og:image" content="http://on1pvbk2n.bkt.clouddn.com/shadowsocks.png">
+<meta property="og:image" content="http://on1pvbk2n.bkt.clouddn.com/Copy-to-local.png">
+<meta property="og:image" content="http://on1pvbk2n.bkt.clouddn.com/bash_profile.png">
+<meta property="og:image" content="http://on1pvbk2n.bkt.clouddn.com/google.png">
+<meta property="og:image" content="http://on1pvbk2n.bkt.clouddn.com/facebook.png">
+<meta property="og:image" content="http://on1pvbk2n.bkt.clouddn.com/yarn.png">
+<meta property="og:updated_time" content="2017-03-31T15:28:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Shadowsocks为macOS终端或Iterm2“翻墙”">
+<meta name="twitter:description" content="随着Web前端框架（Bootstrap 、React、Vue.js）、工具（Gulp自动化任务、Browsersync 浏览器同步、Babel：JavaScript 编译工具、Webpack：模块打包）、模块的盛行，前端开发也越来越偏工程化。http://npmjs.org 号称已经是世界上最大的包管理仓库，在国内，要安装这些依赖包，经常会出现502连接超时情况。
+作为一个有志向的程序猿，更好地使">
+<meta name="twitter:image" content="http://www.banwagong.me/zb_users/upload/2017/03/201703141489460076791321.jpg">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> 使用Shadowsocks为macOS终端或Iterm2“翻墙” - Bravist </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">Bravist</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          使用Shadowsocks为macOS终端或Iterm2“翻墙”
+        
+      </h1>
+
+      <time class="post-time">
+          3月 31 2017
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <p>随着Web前端框架（Bootstrap 、React、Vue.js）、工具（Gulp自动化任务、Browsersync 浏览器同步、Babel：JavaScript 编译工具、Webpack：模块打包）、模块的盛行，前端开发也越来越偏工程化。<a href="http://npmjs.org" target="_blank" rel="external">http://npmjs.org</a> 号称已经是世界上最大的包管理仓库，在国内，要安装这些依赖包，经常会出现502连接超时情况。</p>
+<p>作为一个有志向的程序猿，更好地使用Google Search在解决技术问题、难题可能是必备专业技能，另外，在平时学习的宽度和深度方面，加墙与国外的在线交流社区、视频学习平台、牛人的twitter、facebook互动也是非常重要，有一首歌里面有这样一句：“外面的世界很精彩…”，真的很精彩！</p>
+<p>那么问题来了，要解决问题和成为一个有志向程序员，我们如何 <code>go out</code> 呢？答案是·自掏腰包搭建Shadowsocks服务器。<a href="https://php-rmcr7.rhcloud.com/shadowsocks-server/" target="_blank" rel="external">教你如何搭建自己的Shadowsocks服务器</a> 这篇文章详细描述了如何搭建自己的Shadowsocks服务器，这不是本文要解决的重点，如果在配置过程中有问题可以在线@我。在这里我推荐使用<a href="http://www.banwagong.me/" target="_blank" rel="external">搬瓦工VPS</a> 作为你的翻墙服务器，它有专门针对国内网络作优化。</p>
+<p>搬瓦工机房Ping速度对比<br><img src="http://www.banwagong.me/zb_users/upload/2017/03/201703141489460076791321.jpg" alt=""></p>
+<p>我家里（成都市电信）的Ping的速度</p>
+<p><img src="http://on1pvbk2n.bkt.clouddn.com/ping.png" alt=""></p>
+<p>成功安装了Shadowsocks后，需要在macOS中安装另一个代理工具<a href="https://github.com/shadowsocks/ShadowsocksX-NG" target="_blank" rel="external">ShadowsocksX-NG</a></p>
+<p><img src="http://on1pvbk2n.bkt.clouddn.com/shadowsocks.png" alt=""></p>
+<p>安装这样的配置后，你的浏览器应该就可以成功的访问国外的网络了。</p>
+<p>接下来要配置的就是如何在macOS终端或者Iterm2使用Shadowsocks。</p>
+<ol>
+<li>在ShadowsocksX-NG中，复制终端代理命令</li>
+</ol>
+<p><img src="http://on1pvbk2n.bkt.clouddn.com/Copy-to-local.png" alt=""></p>
+<p>复制的命令行如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> http_proxy=http://127.0.0.1:1087;</div><div class="line"><span class="built_in">export</span> https_proxy=http://127.0.0.1:1087;</div></pre></td></tr></table></figure>
+<ol>
+<li>将终端代理命令复制到<code>.bash_profile</code>文件中</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ sudo vi ~/.bash_profile</div><div class="line"></div><div class="line"><span class="comment">#在文件的末尾加上终端代理命令</span></div><div class="line"><span class="built_in">export</span> http_proxy=http://127.0.0.1:1087;</div><div class="line"><span class="built_in">export</span> https_proxy=http://127.0.0.1:1087;</div></pre></td></tr></table></figure>
+<p><img src="http://on1pvbk2n.bkt.clouddn.com/bash_profile.png" alt=""></p>
+<ol>
+<li><p>重启的你终端或Iterm2，使用<code>curl google.com</code> 命令测试是否成功，我用<code>http</code>命令测试效果如下：</p>
+<p><img src="http://on1pvbk2n.bkt.clouddn.com/google.png" alt=""></p>
+<p>命令行访问google.com</p>
+<p><img src="http://on1pvbk2n.bkt.clouddn.com/facebook.png" alt=""></p>
+<p>命令行访问facebook.com</p>
+<p><img src="http://on1pvbk2n.bkt.clouddn.com/yarn.png" alt=""></p>
+<p>使用<code>yarn install</code> 安装前端依赖，毫无压力（未代理之前，yarn 一直未成功安装依赖包）</p>
+<p>如果你在安装的过程中出现任何问题可以在线@我!</p>
+</li>
+</ol>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/Shadowsocks/">Shadowsocks</a>
+          
+            <a href="/tags/Iterm2/">Iterm2</a>
+          
+            <a href="/tags/macOS/">macOS</a>
+          
+        </div>
+
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2017/03/28/gitosis/">
+        <span class="next-text nav-default">安装Git服务&使用Gitosis管理成员、项目并做项目授权</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+    2017
+    <span class="footer-author">Bravist</span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
