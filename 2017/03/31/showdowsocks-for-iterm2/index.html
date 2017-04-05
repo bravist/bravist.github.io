@@ -17,7 +17,7 @@
 
 
 
-  <meta name="keywords" content="Shadowsocks,macOS,iTerm2," />
+  <meta name="keywords" content="Shadowsocks,iTerm2,macOS," />
 
 
 
@@ -32,30 +32,30 @@
 
 
 
-<link rel="canonical" href="http://chenghuiyong.com/2017/03/31/showdowsocks-for-iterm2/"/>
+<link rel="canonical" href="http://www.chenghuiyong.com/2017/03/31/showdowsocks-for-iterm2/"/>
 
 
-<meta name="description" content="随着Web前端框架（Bootstrap 、React、Vue.js）、包管理工具（Gulp自动化任务、Browsersync 浏览器同步、Babel：JavaScript 编译工具、Webpack：模块打包）、模块的盛行，前端开发也越来越偏工程化。http://npmjs.org 号称已经是世界上最大的包管理仓库，在国内，要安装这些依赖包，经常会出现502连接超时情况。
-作为一个有志向的程序猿，更">
+<meta name="description" content="随着Web前端框架（Bootstrap、React、Vue.js）、包管理工具（Gulp自动化任务、Browsersync浏览器同步、Babel：JavaScript编译工具、Webpack：模块打包）、模块的盛行，前端开发也越来越偏工程化。https://www.npmjs.com/号称已经是世界上最大的包管理仓库，在国内，要安装这些依赖包，经常会出现502连接超时情况。
+作为一个有志向的程序猿">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在macOS终端或者iTerm2中运行Shadowsocks">
-<meta property="og:url" content="http://chenghuiyong.com/2017/03/31/showdowsocks-for-iterm2/index.html">
+<meta property="og:url" content="http://www.chenghuiyong.com/2017/03/31/showdowsocks-for-iterm2/index.html">
 <meta property="og:site_name" content="Bravist">
-<meta property="og:description" content="随着Web前端框架（Bootstrap 、React、Vue.js）、包管理工具（Gulp自动化任务、Browsersync 浏览器同步、Babel：JavaScript 编译工具、Webpack：模块打包）、模块的盛行，前端开发也越来越偏工程化。http://npmjs.org 号称已经是世界上最大的包管理仓库，在国内，要安装这些依赖包，经常会出现502连接超时情况。
-作为一个有志向的程序猿，更">
-<meta property="og:image" content="http://on1pvbk2n.bkt.clouddn.com/ping.png">
-<meta property="og:image" content="http://on1pvbk2n.bkt.clouddn.com/shadowsocks.png">
-<meta property="og:image" content="http://on1pvbk2n.bkt.clouddn.com/Copy-to-local.png">
-<meta property="og:image" content="http://on1pvbk2n.bkt.clouddn.com/bash_profile.png">
-<meta property="og:image" content="http://on1pvbk2n.bkt.clouddn.com/google.png">
-<meta property="og:image" content="http://on1pvbk2n.bkt.clouddn.com/facebook.png">
-<meta property="og:image" content="http://on1pvbk2n.bkt.clouddn.com/yarn.png">
-<meta property="og:updated_time" content="2017-04-01T07:06:32.000Z">
+<meta property="og:description" content="随着Web前端框架（Bootstrap、React、Vue.js）、包管理工具（Gulp自动化任务、Browsersync浏览器同步、Babel：JavaScript编译工具、Webpack：模块打包）、模块的盛行，前端开发也越来越偏工程化。https://www.npmjs.com/号称已经是世界上最大的包管理仓库，在国内，要安装这些依赖包，经常会出现502连接超时情况。
+作为一个有志向的程序猿">
+<meta property="og:image" content="http://www.chenghuiyong.com/images/macOS-iTerm2/ping.png">
+<meta property="og:image" content="http://www.chenghuiyong.com/images/macOS-iTerm2/shadowsocks.png">
+<meta property="og:image" content="http://www.chenghuiyong.com/images/macOS-iTerm2/Copy-to-local.png">
+<meta property="og:image" content="http://www.chenghuiyong.com/images/macOS-iTerm2/bash_profile.png">
+<meta property="og:image" content="http://www.chenghuiyong.com/images/macOS-iTerm2/google.png">
+<meta property="og:image" content="http://www.chenghuiyong.com/images/macOS-iTerm2/facebook.png">
+<meta property="og:image" content="http://www.chenghuiyong.com/images/macOS-iTerm2/yarn.png">
+<meta property="og:updated_time" content="2017-04-05T04:09:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在macOS终端或者iTerm2中运行Shadowsocks">
-<meta name="twitter:description" content="随着Web前端框架（Bootstrap 、React、Vue.js）、包管理工具（Gulp自动化任务、Browsersync 浏览器同步、Babel：JavaScript 编译工具、Webpack：模块打包）、模块的盛行，前端开发也越来越偏工程化。http://npmjs.org 号称已经是世界上最大的包管理仓库，在国内，要安装这些依赖包，经常会出现502连接超时情况。
-作为一个有志向的程序猿，更">
-<meta name="twitter:image" content="http://on1pvbk2n.bkt.clouddn.com/ping.png">
+<meta name="twitter:description" content="随着Web前端框架（Bootstrap、React、Vue.js）、包管理工具（Gulp自动化任务、Browsersync浏览器同步、Babel：JavaScript编译工具、Webpack：模块打包）、模块的盛行，前端开发也越来越偏工程化。https://www.npmjs.com/号称已经是世界上最大的包管理仓库，在国内，要安装这些依赖包，经常会出现502连接超时情况。
+作为一个有志向的程序猿">
+<meta name="twitter:image" content="http://www.chenghuiyong.com/images/macOS-iTerm2/ping.png">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
@@ -139,25 +139,25 @@
 
     
             <div class="post-content">
-            <p>随着Web前端框架（Bootstrap 、React、Vue.js）、包管理工具（Gulp自动化任务、Browsersync 浏览器同步、Babel：JavaScript 编译工具、Webpack：模块打包）、模块的盛行，前端开发也越来越偏工程化。<a href="http://npmjs.org" target="_blank" rel="external">http://npmjs.org</a> 号称已经是世界上最大的包管理仓库，在国内，要安装这些依赖包，经常会出现502连接超时情况。</p>
+            <p>随着Web前端框架（Bootstrap、React、Vue.js）、包管理工具（Gulp自动化任务、Browsersync浏览器同步、Babel：JavaScript编译工具、Webpack：模块打包）、模块的盛行，前端开发也越来越偏工程化。<a href="https://www.npmjs.com/号称已经是世界上最大的包管理仓库，在国内，要安装这些依赖包，经常会出现502连接超时情况。" target="_blank" rel="external">https://www.npmjs.com/号称已经是世界上最大的包管理仓库，在国内，要安装这些依赖包，经常会出现502连接超时情况。</a></p>
 <p>作为一个有志向的程序猿，更好地使用Google Search在解决技术问题、难题可能是必备专业技能，另外，在平时学习的宽度和深度方面，加墙与国外的在线交流社区、视频学习平台、牛人的twitter、facebook互动也是非常重要，有一首歌里面有这样一句：“外面的世界很精彩…”，真的很精彩！</p>
-<p>那么问题来了，要解决问题和成为一个有志向程序员，我们如何 <code>go out</code> 呢？答案是·自掏腰包搭建Shadowsocks服务器。<a href="https://php-rmcr7.rhcloud.com/shadowsocks-server/" target="_blank" rel="external">教你如何搭建自己的Shadowsocks服务器</a> 这篇文章详细描述了如何搭建自己的Shadowsocks服务器。在这里我推荐使用<a href="http://www.banwagong.me/" target="_blank" rel="external">搬瓦工VPS</a> 作为你的翻墙服务器，它有专门针对国内网络作优化。</p>
+<p>那么问题来了，要解决问题和成为一个有志向程序员，我们如何 <code>go out</code> 呢？答案是·自掏腰包搭建Shadowsocks服务器。<a href="https://php-rmcr7.rhcloud.com/shadowsocks-server/" target="_blank" rel="external">教你如何搭建自己的Shadowsocks服务器</a> 这篇文章详细描述了如何搭建自己的Shadowsocks服务器。在这里我推荐使用<a href="www.banwagong.me">搬瓦工VPS</a> 作为你的翻墙服务器，它有专门针对国内网络作优化。</p>
 <p>成都市电信Ping的速度</p>
-<p><img src="http://on1pvbk2n.bkt.clouddn.com/ping.png" alt=""></p>
+<p><img src="images/macOS-iTerm2/ping.png" alt=""></p>
 <p>成功安装了Shadowsocks后，需要在macOS中安装另一个代理工具<a href="https://github.com/shadowsocks/ShadowsocksX-NG" target="_blank" rel="external">ShadowsocksX-NG</a></p>
-<p><img src="http://on1pvbk2n.bkt.clouddn.com/shadowsocks.png" alt=""></p>
+<p><img src="images/macOS-iTerm2/shadowsocks.png" alt=""></p>
 <p>正确配置后，你的浏览器应该就可以成功地访问国外的网络了。</p>
 <p>接下来要配置的就是如何在macOS终端或者iTerm2使用Shadowsocks。</p>
-<h1 id="在ShadowsocksX-NG中，拷贝终端代理脚本"><a href="#在ShadowsocksX-NG中，拷贝终端代理脚本" class="headerlink" title="在ShadowsocksX-NG中，拷贝终端代理脚本"></a>在ShadowsocksX-NG中，拷贝终端代理脚本</h1><p><img src="http://on1pvbk2n.bkt.clouddn.com/Copy-to-local.png" alt=""></p>
+<h1 id="在ShadowsocksX-NG中，拷贝终端代理脚本"><a href="#在ShadowsocksX-NG中，拷贝终端代理脚本" class="headerlink" title="在ShadowsocksX-NG中，拷贝终端代理脚本"></a>在ShadowsocksX-NG中，拷贝终端代理脚本</h1><p><img src="images/macOS-iTerm2/Copy-to-local.png" alt=""></p>
 <p>复制代理脚本</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> http_proxy=http://127.0.0.1:1087;</div><div class="line"><span class="built_in">export</span> https_proxy=http://127.0.0.1:1087;</div></pre></td></tr></table></figure>
 <h1 id="添加终端代理脚本到-bash-profile文件"><a href="#添加终端代理脚本到-bash-profile文件" class="headerlink" title="添加终端代理脚本到.bash_profile文件"></a>添加终端代理脚本到<code>.bash_profile</code>文件</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ sudo vi ~/.bash_profile</div><div class="line"></div><div class="line">...</div><div class="line"><span class="comment">#在文件的末尾加上终端代理脚本</span></div><div class="line"><span class="built_in">export</span> http_proxy=http://127.0.0.1:1087;</div><div class="line"><span class="built_in">export</span> https_proxy=http://127.0.0.1:1087;</div><div class="line"></div><div class="line">$ <span class="built_in">source</span> ~/.bash_profile</div></pre></td></tr></table></figure>
-<p><img src="http://on1pvbk2n.bkt.clouddn.com/bash_profile.png" alt=""></p>
-<h1 id="重启终端或iTerm2，使用curl-google-com-命令测试是否成功，使用http命令测试："><a href="#重启终端或iTerm2，使用curl-google-com-命令测试是否成功，使用http命令测试：" class="headerlink" title="重启终端或iTerm2，使用curl google.com 命令测试是否成功，使用http命令测试："></a>重启终端或iTerm2，使用<code>curl google.com</code> 命令测试是否成功，使用<code>http</code>命令测试：</h1><p><img src="http://on1pvbk2n.bkt.clouddn.com/google.png" alt=""></p>
+<p><img src="images/macOS-iTerm2/bash_profile.png" alt=""></p>
+<h1 id="重启终端或iTerm2，使用curl-google-com-命令测试是否成功，使用http命令测试："><a href="#重启终端或iTerm2，使用curl-google-com-命令测试是否成功，使用http命令测试：" class="headerlink" title="重启终端或iTerm2，使用curl google.com 命令测试是否成功，使用http命令测试："></a>重启终端或iTerm2，使用<code>curl google.com</code> 命令测试是否成功，使用<code>http</code>命令测试：</h1><p><img src="images/macOS-iTerm2/google.png" alt=""></p>
 <p>命令行访问 <code>google.com</code></p>
-<p><img src="http://on1pvbk2n.bkt.clouddn.com/facebook.png" alt=""></p>
+<p><img src="images/macOS-iTerm2/facebook.png" alt=""></p>
 <p>命令行访问 <code>facebook.com</code></p>
-<h1 id="测试yarn-install、npm-install-安装前端依赖"><a href="#测试yarn-install、npm-install-安装前端依赖" class="headerlink" title="测试yarn install、npm install 安装前端依赖"></a>测试<code>yarn install</code>、<code>npm install</code> 安装前端依赖</h1><p><img src="http://on1pvbk2n.bkt.clouddn.com/yarn.png" alt=""></p>
+<h1 id="测试yarn-install、npm-install-安装前端依赖"><a href="#测试yarn-install、npm-install-安装前端依赖" class="headerlink" title="测试yarn install、npm install 安装前端依赖"></a>测试<code>yarn install</code>、<code>npm install</code> 安装前端依赖</h1><p><img src="images/macOS-iTerm2/yarn.png" alt=""></p>
 
             </div>
           
@@ -168,9 +168,9 @@
           
             <a href="/tags/Shadowsocks/">Shadowsocks</a>
           
-            <a href="/tags/macOS/">macOS</a>
-          
             <a href="/tags/iTerm2/">iTerm2</a>
+          
+            <a href="/tags/macOS/">macOS</a>
           
         </div>
 
