@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="如何安装并配置LNMP环境在CentOS 7中"/>
+
+
+
+
+  <meta name="keywords" content="CentOS,LNMP," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Bravist">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="https://www.chenghuiyong.com/2017-04-21/centos-lnmp.html"/>
+
+
+<meta name="description" content="LNMP 是一组应用程序服务组合的缩写，用于运用基于PHP脚本语言的Web应用程序。它主要由四部分内容组成，Linux 操作系统（基于CentOS linux发行版），Nginx web服务器，Mysql 数据库服务器（使用MariaDB），PHP 动态脚本解析器PHP-FPM。
+开始安装LNMP服务之前，推荐优化配置一下您的CentOS 7作业环境。
+初始化配置CentOS 7假设您有一台新购买">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何安装并配置LNMP环境在CentOS 7中">
+<meta property="og:url" content="https://www.chenghuiyong.com/2017-04-21/centos-lnmp.html">
+<meta property="og:site_name" content="Bravist">
+<meta property="og:description" content="LNMP 是一组应用程序服务组合的缩写，用于运用基于PHP脚本语言的Web应用程序。它主要由四部分内容组成，Linux 操作系统（基于CentOS linux发行版），Nginx web服务器，Mysql 数据库服务器（使用MariaDB），PHP 动态脚本解析器PHP-FPM。
+开始安装LNMP服务之前，推荐优化配置一下您的CentOS 7作业环境。
+初始化配置CentOS 7假设您有一台新购买">
+<meta property="og:updated_time" content="2017-04-21T15:34:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何安装并配置LNMP环境在CentOS 7中">
+<meta name="twitter:description" content="LNMP 是一组应用程序服务组合的缩写，用于运用基于PHP脚本语言的Web应用程序。它主要由四部分内容组成，Linux 操作系统（基于CentOS linux发行版），Nginx web服务器，Mysql 数据库服务器（使用MariaDB），PHP 动态脚本解析器PHP-FPM。
+开始安装LNMP服务之前，推荐优化配置一下您的CentOS 7作业环境。
+初始化配置CentOS 7假设您有一台新购买">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> 如何安装并配置LNMP环境在CentOS 7中 - Bravist </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">Bravist</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          如何安装并配置LNMP环境在CentOS 7中
+        
+      </h1>
+
+      <time class="post-time">
+          4月 21 2017
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <p>LNMP 是一组应用程序服务组合的缩写，用于运用基于PHP脚本语言的Web应用程序。它主要由四部分内容组成，<strong>L</strong>inux 操作系统（基于CentOS linux发行版），<strong>N</strong>ginx web服务器，<strong>M</strong>ysql 数据库服务器（使用MariaDB），<strong>P</strong>HP 动态脚本解析器PHP-FPM。</p>
+<p>开始安装<strong>LNMP</strong>服务之前，推荐优化配置一下您的CentOS 7作业环境。</p>
+<h2 id="初始化配置CentOS-7"><a href="#初始化配置CentOS-7" class="headerlink" title="初始化配置CentOS 7"></a>初始化配置CentOS 7</h2><p>假设您有一台新购买的CentOS 7 服务器，同时已经创建了<code>root</code>账户并能够使用<code>ssh</code> 方式登录。</p>
+<h3 id="步骤一、创建一个新用户"><a href="#步骤一、创建一个新用户" class="headerlink" title="步骤一、创建一个新用户"></a>步骤一、创建一个新用户</h3><p>使用您的<code>root</code>账户登录到您的服务器，下面的命令用于创建一个叫<code>bravist</code>的用户，仿照它创建一个您自己的账户。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">local$ ssh root@SERVER_IP_ADDRESS</div><div class="line"></div><div class="line"># adduser bravist</div></pre></td></tr></table></figure>
+<p>接着，为新用户设置一下登录密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># passwd bravist</div></pre></td></tr></table></figure>
+<p>输入一个比较强壮的密码并重复然后保存。</p>
+<h3 id="步骤二、设置新用户拥有Root账户权限"><a href="#步骤二、设置新用户拥有Root账户权限" class="headerlink" title="步骤二、设置新用户拥有Root账户权限"></a>步骤二、设置新用户拥有Root账户权限</h3><p>您刚刚创建的用户<code>bravist</code>默认拥有普通用户权限，但是，有时候您需要拥有更多权限处理一些高级的任务，此时就允许让新用户拥有更高的权限，执行用下面的命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># gpasswd -a bravist wheel</div></pre></td></tr></table></figure>
+<p>现在，您可以在命名的前面添加<code>sudo</code> 让其执行管理员的任务<code>sudo cat /etc/redhat-release</code></p>
+<h3 id="步骤三、上传本地SSH公钥"><a href="#步骤三、上传本地SSH公钥" class="headerlink" title="步骤三、上传本地SSH公钥"></a>步骤三、上传本地SSH公钥</h3><p>添加了新用户<code>bravist</code>后，在本地命令行终端可以直接登录了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">local$ ssh bravist@SERVER_IP_ADDRESS</div></pre></td></tr></table></figure>
+<p>输入密码，回车登录。我们也可以为本地用户创建一个ssh 公钥，然后将该公钥上传至服务器新用户<code>bravist</code> 授权文件中<code>.ssh/authorized_keys</code>。这样就可以无需每次输入<code>bravist</code>账户密码自动登录。</p>
+<p>在本地生成秘钥对，使用<code>ssh-keygen</code>然后输入密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">local$ ssh-keygen</div></pre></td></tr></table></figure>
+<p>回车后，会在您的“本地用户”主目录中创建<code>.ssh</code>目录和文件。在本地用户主目录中您会看到一个公钥<code>~/.ssh/id_rsa.pub</code>和一个私钥<code>~/.ssh/id_rsa</code>。</p>
+<p>接着，上传您的公钥至服务器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">local$ ssh-copy-id brave@SERVER_IP_ADDRESS</div></pre></td></tr></table></figure>
+<p>回车，输入密码后您本地的公钥会自动被写入到服务器的<code>/home/bravist/.ssh/authorized_keys</code>文件中。如果本地不能执行<code>ssh-copy-id</code>命令，您可以通过其他的方式上传并手动写入到上面的服务器文件中，PS：<code>手动上传并写入/home/bravist/.ssh/authorized_keys时，需要再次设置该文件的权限为600 chmod 600 /home/bravist/.ssh/authorized_keys</code>。</p>
+<h3 id="步骤四、切换Bash-Shell-为-ZSH"><a href="#步骤四、切换Bash-Shell-为-ZSH" class="headerlink" title="步骤四、切换Bash Shell 为 ZSH"></a>步骤四、切换Bash Shell 为 ZSH</h3><p>新配置Linux服务器默认使用<code>bash</code> Shell，推荐使用<code>ZSH</code>  shell，它提供更友好的主题和交互体验。</p>
+<p>安装ZSH</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum -y install zsh</div></pre></td></tr></table></figure>
+<p>查看服务器存在哪些shell和正在使用的shell</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ chsh -l</div><div class="line"></div><div class="line">$ echo $SHELL</div></pre></td></tr></table></figure>
+<p>修改默认shell为<code>zsh</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo chsh -s &quot;$(command -v zsh)&quot; &quot;$&#123;USER&#125;&quot;</div><div class="line"></div><div class="line">$ touch ~/.zshrc</div></pre></td></tr></table></figure>
+<p>确认是否修改成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ echo $SHELL</div></pre></td></tr></table></figure>
+<p>最后，推荐安装一下<code>zsh</code>的另外一个框架<code>on-my-zsh</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</div></pre></td></tr></table></figure>
+<p>到这里，你可以更加心情愉悦的使用您的服务器了。</p>
+<h2 id="开始安装LNMP"><a href="#开始安装LNMP" class="headerlink" title="开始安装LNMP"></a>开始安装LNMP</h2><h3 id="一、安装Nginx"><a href="#一、安装Nginx" class="headerlink" title="一、安装Nginx"></a>一、安装Nginx</h3><p>访问<a href="http://nginx.org/en/linux_packages.html" target="_blank" rel="external">Nginx官网</a>，查询Linux版本的Nignx发行版本。在您的<code>/etc/yum.repos.d/nginx.repo</code>文件中添加nginx yum仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo vi /etc/yum.repos.d/nginx.repo</div></pre></td></tr></table></figure>
+<p>添加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[nginx]</div><div class="line">name=nginx repo</div><div class="line">baseurl=http://nginx.org/packages/centos/7/$basearch/</div><div class="line">gpgcheck=0</div><div class="line">enabled=1</div></pre></td></tr></table></figure>
+<p>查看是否正确添加了nignx yum 远程仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum repolist</div></pre></td></tr></table></figure>
+<p>开始安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install -y nginx</div></pre></td></tr></table></figure>
+<p>启动nginx并设置开机自启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo systemctl start nginx</div><div class="line"></div><div class="line">$ sudo systemctl enable nginx</div></pre></td></tr></table></figure>
+<p>在本地访问您的服务器，确认IP能够访问你们的Web服务器。通常您可以这样做这个确认工作</p>
+<ul>
+<li><p>服务器是否启动了nginx并开启了80端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#80端口是否开启</div><div class="line">$ netstat -tunlp</div><div class="line"></div><div class="line">#是否存在nginx进程</div><div class="line">$ ps aux | grep nginx</div></pre></td></tr></table></figure>
+</li>
+<li><p>本地确认服务器防火墙是否允许访问80端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">local$ telnet SERVER_IP_ADDRESS 80</div><div class="line"></div><div class="line">Trying SERVER_IP_ADDRESS...</div><div class="line">Connected to SERVER_IP_ADDRESS.vultr.com.</div><div class="line">Escape character is &apos;^]&apos;.</div></pre></td></tr></table></figure>
+<p>如果没有看到类似下面的输出，您就需要配置一下服务器的防火墙。CentOS 7 中默认开启<code>firewalld</code>防火墙服务，防火墙服务可以自行<code>firewall-cmd --help</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#开启443端口</div><div class="line">$ sudo firewall-cmd --zone=public --add-service=https</div><div class="line"></div><div class="line">#开启80端口</div><div class="line">$ sudo firewall-cmd --zone=public --add-service=http</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="二、安装PHP"><a href="#二、安装PHP" class="headerlink" title="二、安装PHP"></a>二、安装PHP</h3><p>CentOS 7 使用 <code>yum</code> 安装PHP的版本默认是5.4，这里推荐使用PHP7大版本，修改php yum 仓库让其支持PHP 7。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#设置ius仓库</div><div class="line">$ sudo rpm -Uvh https://centos7.iuscommunity.org/ius-release.rpm</div><div class="line">#更新仓库</div><div class="line">$ sudo yum update</div></pre></td></tr></table></figure>
+<p>查找仓库中的PHP 7相关的软件包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum list | grep php70</div></pre></td></tr></table></figure>
+<p>因PHP项目不同，可能安装PHP扩展包也一直，这里我推荐一下项目经常会用到的一些PHP扩展包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$  sudo yum install -y php70u-fpm-nginx php70u-cli php70u-mysqlnd php70u-mbstring php70u-mcrypt php70u-xml php70u-gd php70u-json php70u-bcmath</div></pre></td></tr></table></figure>
+<p>PHP运行模式分两种，一种是服务器命令行运行模式PHP-CLI，一种是结合Web服务器动态解析PHP脚本并将结果返回给Web服务器模式PHP-FPM。我们安装两种模式。</p>
+<p>启动并设置开机自启动<code>php-fpm</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo systemctl start php-fpm</div><div class="line"></div><div class="line">$ sudo systemctl enable php-fpm</div></pre></td></tr></table></figure>
+<p>接下来，继续配置PHP-FPM环境</p>
+<ol>
+<li>修改文件<code>/etc/php-fpm.d/www.conf</code>使其监听脚本为sock方式</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$sudo vi /etc/php-fpm.d/www.conf</div></pre></td></tr></table></figure>
+<p>找到<code>listen = 127.0.0.1:9000</code>并添加注释，然后在下面添加文本<code>listen = /run/php-fpm/www.sock</code>，类似下面修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"></div><div class="line">; Note: This value is mandatory.</div><div class="line">;listen = 127.0.0.1:9000</div><div class="line">listen = /run/php-fpm/www.sock</div></pre></td></tr></table></figure>
+<p>查找<code>listen.acl_users = nginx</code> 并去掉注释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"></div><div class="line">;listen.acl_users = apache</div><div class="line">listen.acl_users = nginx</div></pre></td></tr></table></figure>
+<ol>
+<li>打开文件<code>/etc/nginx/conf.d/php-fpm.conf</code>，修改服务器监听脚本</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># PHP-FPM FastCGI server</div><div class="line"># network or unix domain socket configuration</div><div class="line"></div><div class="line">upstream php-fpm &#123;</div><div class="line">        #server 127.0.0.1:9000;</div><div class="line">        server unix:/run/php-fpm/www.sock;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>保存退出，接着打开文件<code>/etc/nginx/conf.d/default.conf</code>，修改<code>fastcgi_pass</code>值为<code>php-fpm</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">location ~ \.php$ &#123;</div><div class="line">      try_files $uri =404;</div><div class="line">      fastcgi_split_path_info ^(.+\.php)(/.+)$;</div><div class="line">      # fastcgi_pass unix:/var/run/php-fpm/php-fpm.sock;</div><div class="line">      fastcgi_pass php-fpm;</div><div class="line">      fastcgi_index index.php;</div><div class="line">      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</div><div class="line">      include fastcgi_params;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>重新启动nginx与php-fpm，你的Web与php环境已经配置完成。</p>
+<h3 id="三、安装MariaDB"><a href="#三、安装MariaDB" class="headerlink" title="三、安装MariaDB"></a>三、安装MariaDB</h3><p>MariaDB是Mysql官方维护的一个数据库开源分支，访问官网查看特性介绍。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install mariadb-server mariadb</div></pre></td></tr></table></figure>
+<p>启动MariaDB</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo systemctl start mariadb</div></pre></td></tr></table></figure>
+<p>设置开机自启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo systemctl enable mariadb</div></pre></td></tr></table></figure>
+<p>设置root账户密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo mysql_secure_installation</div></pre></td></tr></table></figure>
+<p>输入密码保存退出。</p>
+<h2 id="安装PHP-Composer"><a href="#安装PHP-Composer" class="headerlink" title="安装PHP Composer"></a>安装PHP Composer</h2><p>现代PHP开发者，需要掌握依赖包管理工具Composer，在国内，建议配置项目的仓库地址配置到<a href="https://pkg.phpcomposer.com/" target="_blank" rel="external">国内镜像</a>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ php -r &quot;copy(&apos;https://getcomposer.org/installer&apos;, &apos;composer-setup.php&apos;);&quot;</div><div class="line"></div><div class="line">$ php composer-setup.php</div><div class="line"></div><div class="line">$ sudo mv composer.phar /usr/local/bin/composer</div><div class="line"></div><div class="line">$ php -r &quot;unlink(&apos;composer-setup.php&apos;);&quot;</div></pre></td></tr></table></figure>
+<h2 id="安装进程管理工具Supervisor"><a href="#安装进程管理工具Supervisor" class="headerlink" title="安装进程管理工具Supervisor"></a>安装进程管理工具Supervisor</h2><p>安装python相关工具</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum -y install python-setuptools</div></pre></td></tr></table></figure>
+<p>使用<code>easy_install</code>安装<code>supervisor</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo easy_install supervisor</div></pre></td></tr></table></figure></p>
+<p>生成supervisor配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ echo_supervisord_conf &gt; /etc/supervisord.conf</div><div class="line"></div><div class="line">$ sudo mkdir -p /var/log/supervisor</div><div class="line"></div><div class="line">$ sudo mkdir -p /etc/supervisor/conf.d/</div><div class="line"></div><div class="line">$ sudo echo -e &quot;[include]\nfiles = /etc/supervisor/conf.d/*.conf&quot;&gt;&gt;/etc/supervisord.conf</div></pre></td></tr></table></figure></p>
+<p>启动supervisor服务，读取配置文件并更新<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ supervisord</div><div class="line"></div><div class="line">$ supervisorctl reread</div><div class="line"></div><div class="line">$ supervisorctl update</div><div class="line"></div><div class="line">$ supervisorctl restart all</div></pre></td></tr></table></figure></p>
+<h2 id="隐藏Nignx与PHP版本号"><a href="#隐藏Nignx与PHP版本号" class="headerlink" title="隐藏Nignx与PHP版本号"></a>隐藏Nignx与PHP版本号</h2><p>编辑文件<code>/etc/nginx/conf.d/default.conf</code>，并添加文本<code>server_tokens off;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ sudo vi /etc/nginx/conf.d/default.conf</div><div class="line">...</div><div class="line"></div><div class="line">#add server_tokens</div><div class="line">server_tokens off;</div></pre></td></tr></table></figure>
+<p>保存退出，继续打开文件<code>/etc/php.ini</code>，将<code>expose_php</code>参数值设置为<code>off</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ sudo vi /etc/php.ini</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">#设置expse_php=Off</div><div class="line">expose_php = Off</div></pre></td></tr></table></figure>
+<p>退出并重新启动<code>nginx</code>与<code>php-fpm</code>。</p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/CentOS/">CentOS</a>
+          
+            <a href="/tags/LNMP/">LNMP</a>
+          
+        </div>
+
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2017-04-06/nodejs-webhooks.html">
+        <span class="next-text nav-default">NodeJS Webhooks 实现代码自动部署</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+    2017
+    <span class="footer-author">Bravist</span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/gas.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
