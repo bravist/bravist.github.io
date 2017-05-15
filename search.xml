@@ -1,214 +1,11 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-  <head>
-    
-<meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-  <meta name="description" content="致力于成为一名互联网Web领域的工匠"/>
-
-
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="Bravist">
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
-
-
-
-<link rel="canonical" href="https://www.chenghuiyong.com/"/>
-
-
-<meta name="description" content="致力于成为一名互联网Web领域的工匠">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bravist">
-<meta property="og:url" content="https://www.chenghuiyong.com/index.html">
-<meta property="og:site_name" content="Bravist">
-<meta property="og:description" content="致力于成为一名互联网Web领域的工匠">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bravist">
-<meta name="twitter:description" content="致力于成为一名互联网Web领域的工匠">
-
-
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
-
-
-
-  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
-
-
-
-
-
-<script>
-  var CONFIG = {
-    search: true,
-    searchPath: "/search.xml",
-    fancybox: true,
-    toc: true,
-  }
-</script>
-
-
-
-
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
   
-
-  <script type="text/javascript">
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-96539996-1', 'auto');
-        ga('send', 'pageview');
-  </script>
-
-
-
-    <title> Bravist </title>
-  </head>
-
-  <body><div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/." class="logo">Bravist</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
     
-      <a href="/">
-        <li class="mobile-menu-item">
-          
-          
-            Home
-          
-        </li>
-      </a>
-    
-      <a href="/archives/">
-        <li class="mobile-menu-item">
-          
-          
-            Archives
-          
-        </li>
-      </a>
-    
-      <a href="/about">
-        <li class="mobile-menu-item">
-          
-          
-            About
-          
-        </li>
-      </a>
-    
-  </ul>
-</nav>
-
-    <div class="container" id="mobile-panel">
-      <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">Bravist</a>
-</div>
-
-<nav class="site-navbar">
-  
-    <ul id="menu" class="menu">
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/">
-            
-            
-              首页
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/archives/">
-            
-            
-              归档
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/about">
-            
-            
-              关于
-            
-          </a>
-        </li>
-      
-      
-        <li class="menu-search">
-          <form>
-            <i class="iconfont icon-search" id="open-search"></i>
-            <input type="text" class="search-input" id="search-input" />
-            <i class="iconfont icon-close" id="close-search"></i>
-          </form>
-        </li>
-      
-    </ul>
-  
-</nav>
-
-      </header>
-
-      <main id="main" class="main">
-        <div class="content-wrapper">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts">
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017-05-15/fish-shell.html">macOS 安装 iTerm2 + Fish Shell</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017年5月15日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <blockquote>
+    <entry>
+      <title><![CDATA[macOS 安装 iTerm2 + Fish Shell]]></title>
+      <url>/2017-05-15/fish-shell.html</url>
+      <content type="html"><![CDATA[<blockquote>
 <p><strong>Unix shell</strong>，一种<a href="https://zh.wikipedia.org/wiki/%E6%AE%BC%E5%B1%A4" target="_blank" rel="external">壳层</a>与<a href="https://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2" target="_blank" rel="external">命令行界面</a>，是<a href="https://zh.wikipedia.org/wiki/Unix" target="_blank" rel="external">Unix</a><a href="https://zh.wikipedia.org/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F" target="_blank" rel="external">操作系统</a>下传统的用户和计算机的交互界面。第一个用户直接输入<a href="https://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4_(%E8%AE%A1%E7%AE%97%E6%9C%BA" target="_blank" rel="external">命令</a>)来执行各种各样的任务。</p>
 <p>普通意义上的shell就是可以接受用户输入命令的程序。它之所以被称作shell是因为它隐藏了操作系统低层的细节。同样的Unix下的图形用户界面<a href="https://zh.wikipedia.org/wiki/GNOME" target="_blank" rel="external">GNOME</a>和<a href="https://zh.wikipedia.org/wiki/KDE" target="_blank" rel="external">KDE</a>，有时也被叫做“虚拟shell”或“图形shell”。</p>
 <p> — 来自维基百科</p>
@@ -249,44 +46,25 @@
 <li><a href="https://github.com/oh-my-fish/oh-my-fish" target="_blank" rel="external">fish shell 框架 - oh-my-fish</a></li>
 <li><a href="https://jigsawye.com/2016/06/20/install-fish-shell-on-os-x/" target="_blank" rel="external">在 OSX 使用 Fish shell 取代 bash/zsh</a></li>
 </ul>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017-04-21/centos-lnmp.html">如何安装并配置LNMP环境在CentOS 7中</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017年4月21日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
+]]></content>
       
         
+        <tags>
+            
+            <tag> macOS </tag>
+            
+            <tag> iTerm2 </tag>
+            
+            <tag> Fish Shell </tag>
+            
+        </tags>
         
-
-        
-          <p>LNMP 是一组应用程序服务组合的缩写，用于运用基于PHP脚本语言的Web应用程序。它主要由四部分内容组成，<strong>L</strong>inux 操作系统（基于CentOS linux发行版），<strong>N</strong>ginx web服务器，<strong>M</strong>ysql 数据库服务器（使用MariaDB），<strong>P</strong>HP 动态脚本解析器PHP-FPM。</p>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[如何安装并配置LNMP环境在CentOS 7中]]></title>
+      <url>/2017-04-21/centos-lnmp.html</url>
+      <content type="html"><![CDATA[<p>LNMP 是一组应用程序服务组合的缩写，用于运用基于PHP脚本语言的Web应用程序。它主要由四部分内容组成，<strong>L</strong>inux 操作系统（基于CentOS linux发行版），<strong>N</strong>ginx web服务器，<strong>M</strong>ysql 数据库服务器（使用MariaDB），<strong>P</strong>HP 动态脚本解析器PHP-FPM。</p>
 <p>开始安装<strong>LNMP</strong>服务之前，推荐优化配置一下您的CentOS 7作业环境。</p>
 <h2 id="初始化配置CentOS-7"><a href="#初始化配置CentOS-7" class="headerlink" title="初始化配置CentOS 7"></a>初始化配置CentOS 7</h2><p>假设您有一台新购买的CentOS 7 服务器，同时已经创建了<code>root</code>账户并能够使用<code>ssh</code> 方式登录。</p>
 <h3 id="步骤一、创建一个新用户"><a href="#步骤一、创建一个新用户" class="headerlink" title="步骤一、创建一个新用户"></a>步骤一、创建一个新用户</h3><p>使用您的<code>root</code>账户登录到您的服务器，下面的命令用于创建一个叫<code>bravist</code>的用户，仿照它创建一个您自己的账户。</p>
@@ -385,44 +163,23 @@
 <p>保存退出，继续打开文件<code>/etc/php.ini</code>，将<code>expose_php</code>参数值设置为<code>off</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ sudo vi /etc/php.ini</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">#设置expse_php=Off</div><div class="line">expose_php = Off</div></pre></td></tr></table></figure>
 <p>退出并重新启动<code>nginx</code>与<code>php-fpm</code>。</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017-04-06/nodejs-webhooks.html">NodeJS Webhooks 实现代码自动部署</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017年4月6日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
+]]></content>
       
         
+        <tags>
+            
+            <tag> CentOS </tag>
+            
+            <tag> LNMP </tag>
+            
+        </tags>
         
-
-        
-          <p>​在我的<a href="https://github.com/bravist" target="_blank" rel="external">Github</a>中有两个关于Gitlab代码自动部署的项目，一个是PHP版本的<a href="https://github.com/bravist/gitlab-webhook-php" target="_blank" rel="external">Gitlab Webhooks</a>，另外一个是NodeJS版本的<a href="https://github.com/bravist/node-gitlab-hook" target="_blank" rel="external">Gitlab Webhooks</a>。之前我在社区分享过PHP版本的Gitlab Webhooks，可能大部分浏览过的同学会照着这篇教程亲自尝试安装部署。在这篇文章里，我会推荐使用NodeJS版本的Gitlab Webhooks并解释为什么会建议去使用它。</p>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[NodeJS Webhooks 实现代码自动部署]]></title>
+      <url>/2017-04-06/nodejs-webhooks.html</url>
+      <content type="html"><![CDATA[<p>​在我的<a href="https://github.com/bravist" target="_blank" rel="external">Github</a>中有两个关于Gitlab代码自动部署的项目，一个是PHP版本的<a href="https://github.com/bravist/gitlab-webhook-php" target="_blank" rel="external">Gitlab Webhooks</a>，另外一个是NodeJS版本的<a href="https://github.com/bravist/node-gitlab-hook" target="_blank" rel="external">Gitlab Webhooks</a>。之前我在社区分享过PHP版本的Gitlab Webhooks，可能大部分浏览过的同学会照着这篇教程亲自尝试安装部署。在这篇文章里，我会推荐使用NodeJS版本的Gitlab Webhooks并解释为什么会建议去使用它。</p>
 <p>​PHP版本Gitlab Webhooks 主要检查当前提交<code>Git</code>版本分支并执行不同<code>Linux Shell</code>脚本，实现项目代码的自动部署，了解PHP知识的同学很容易理解它的思想和逻辑，为什么我不推荐使用它呢？</p>
 <p>​<strong>第一、克隆<code>https://github.com/bravist/gitlab-webhook-php</code>后，需要多次修改项目配置信息和依赖运行主机目录</strong></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#查看 gitlab.php</span></div><div class="line"></div><div class="line">$access_token = <span class="string">'MmNmMGRmMGI2Y2EyYjY3NzFjMzRjODkzZTQ3NjY5M2Y='</span>;</div><div class="line"><span class="comment">##这里需要设置访问令牌，避免非法服务器访问Webhooks地址</span></div><div class="line"></div><div class="line">$access_ip = <span class="keyword">array</span>(<span class="string">'&#123;server&#125;'</span>);</div><div class="line"><span class="comment">##允许访问IP地址，必须修改此地址，否则无法访问</span></div><div class="line"></div><div class="line">exec(<span class="string">"/mnt/www/&#123;project&#125;/public/gitlab-webhook-php/master_deploy.sh"</span>);</div><div class="line"><span class="comment">##这里的project需要设置为服务器当前运行项目的路径地址</span></div><div class="line"></div><div class="line"><span class="comment">#查看 develop_deploy.sh</span></div><div class="line"></div><div class="line">cd /mnt/www/&#123;project&#125;</div><div class="line"><span class="comment">##同样的，在Shell脚本中，也需要配置项目的路径地址</span></div></pre></td></tr></table></figure>
@@ -456,44 +213,27 @@
 <p><img src="https://chenghuiyong.com/images/Webhooks/wehooks-2.png" alt="webhooks"></p>
 <h4 id="6-提交版本并测试"><a href="#6-提交版本并测试" class="headerlink" title="6. 提交版本并测试"></a>6. 提交版本并测试</h4><p>在你的本地开发仓库中，执行<code>git push</code>，进入CentOS服务器检查代码是否自动同步。</p>
 <p>使用NodeJS版本的Gitlab Webhooks解除了与Web服务器强依赖关系，同时服务器运行环境源码保持干净灵活，非常适合Docker的运行环境。另外，此项目不仅仅可以运行在Gitlab版本仓库中，同样也可以运行在Github、Coding等运行环境中。</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017-03-31/showdowsocks-for-iterm2.html">在macOS终端或者iTerm2中使用Shadowsocks畅游World Web</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017年3月31日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
+]]></content>
       
         
+        <tags>
+            
+            <tag> Git </tag>
+            
+            <tag> NodeJS </tag>
+            
+            <tag> Webhooks </tag>
+            
+            <tag> Gitlab </tag>
+            
+        </tags>
         
-
-        
-          <p>随着Web前端框架（Bootstrap、React、Vue.js）、包管理工具（Gulp自动化任务、Browsersync浏览器同步、Babel：JavaScript编译工具、Webpack：模块打包）、模块的盛行，前端开发也越来越偏工程化。<a href="https://www.npmjs.com/" target="_blank" rel="external">https://www.npmjs.com/</a> 号称已经是世界上最大的包管理仓库，在国内，要安装这些依赖包，经常会出现502连接超时情况。</p>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[在macOS终端或者iTerm2中使用Shadowsocks畅游World Web]]></title>
+      <url>/2017-03-31/showdowsocks-for-iterm2.html</url>
+      <content type="html"><![CDATA[<p>随着Web前端框架（Bootstrap、React、Vue.js）、包管理工具（Gulp自动化任务、Browsersync浏览器同步、Babel：JavaScript编译工具、Webpack：模块打包）、模块的盛行，前端开发也越来越偏工程化。<a href="https://www.npmjs.com/" target="_blank" rel="external">https://www.npmjs.com/</a> 号称已经是世界上最大的包管理仓库，在国内，要安装这些依赖包，经常会出现502连接超时情况。</p>
 <p>作为一个有志向的程序猿，更好地使用Google Search在解决技术问题、难题可能是必备专业技能，另外，在平时学习的宽度和深度方面，保持与国外的在线交流社区、视频学习平台、牛人的twitter、facebook互动也是非常重要。做到这些必须得“翻墙出去” - 自掏腰包搭建Shadowsocks服务器。<a href="https://php-rmcr7.rhcloud.com/shadowsocks-server/" target="_blank" rel="external">教你如何搭建自己的Shadowsocks服务器</a> 这篇文章详细描述了如何搭建自己的Shadowsocks服务器，另外推荐使用<a href="https://www.banwagong.me" target="_blank" rel="external">搬瓦工VPS</a> VPS，它专门针对国内网络进行了优化。</p>
 <p>成都市电信Ping的速度</p>
 <p><img src="https://www.chenghuiyong.com/images/macOS-iTerm2/ping.png" alt=""></p>
@@ -511,44 +251,23 @@
 <p><img src="https://www.chenghuiyong.com/images/macOS-iTerm2/facebook.png" alt=""></p>
 <p>命令行访问 <code>facebook.com</code></p>
 <h1 id="测试yarn-install、npm-install-安装前端依赖"><a href="#测试yarn-install、npm-install-安装前端依赖" class="headerlink" title="测试yarn install、npm install 安装前端依赖"></a>测试<code>yarn install</code>、<code>npm install</code> 安装前端依赖</h1><p><img src="https://www.chenghuiyong.com/images/macOS-iTerm2/yarn.png" alt=""></p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017-03-28/gitosis.html">安装Git服务&使用Gitosis管理成员、项目并做项目授权</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017年3月28日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
+]]></content>
       
         
+        <tags>
+            
+            <tag> iTerm2 </tag>
+            
+            <tag> Shadowsocks </tag>
+            
+        </tags>
         
-
-        
-          <blockquote>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[安装Git服务&使用Gitosis管理成员、项目并做项目授权]]></title>
+      <url>/2017-03-28/gitosis.html</url>
+      <content type="html"><![CDATA[<blockquote>
 <p>这是一篇实际的操作文档，里面的大部分图都是自己亲手截屏，力求达到真实并希望帮助到更多的遇到类似问题的困惑者。如果遇到问题，可以直接在文章最下面联系到我，也欢迎拍砖。</p>
 </blockquote>
 <h1 id="弄清楚关键词眼与概念"><a href="#弄清楚关键词眼与概念" class="headerlink" title="弄清楚关键词眼与概念"></a>弄清楚关键词眼与概念</h1><p><strong><em>裸仓库（bare repository）</em></strong></p>
@@ -614,177 +333,19 @@
 <li><a href="https://stackoverflow.com/questions/4882545/gitosis-asking-for-password" target="_blank" rel="external">gitosis asking for password</a></li>
 <li><a href="https://stackoverflow.com/questions/25115959/gitosis-init-error-traceback-most-recent-call-last" target="_blank" rel="external">gitosis-init error | Traceback (most recent call last)</a></li>
 </ul>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    
-    
-  </nav>
-
-
-          </div>
-          
-
-        </div>  
-      </main>
-
-      <footer id="footer" class="footer">
-
-  <div class="social-links">
-    
+]]></content>
       
         
-          <a href="mailto:chenghuiyong1987@gmail.com" class="iconfont icon-email" title="email"></a>
+        <tags>
+            
+            <tag> Git </tag>
+            
+            <tag> Gitosis </tag>
+            
+        </tags>
         
-      
-    
-      
-    
-      
-        
-          <a href="https://twitter.com/bravecheng" class="iconfont icon-twitter" title="twitter"></a>
-        
-      
-    
-      
-        
-          <a href="https://www.facebook.com/brave.cheng.7" class="iconfont icon-facebook" title="facebook"></a>
-        
-      
-    
-      
-    
-      
-        
-          <a href="https://plus.google.com/u/0/108959885208595290221" class="iconfont icon-google" title="google"></a>
-        
-      
-    
-      
-        
-          <a href="https://github.com/bravist" class="iconfont icon-github" title="github"></a>
-        
-      
-    
-      
-        
-          <a href="http://weibo.com/1197013323" class="iconfont icon-weibo" title="weibo"></a>
-        
-      
-    
-      
-        
-          <a href="https://www.zhihu.com/people/cheng-hui-yong/" class="iconfont icon-zhihu" title="zhihu"></a>
-        
-      
-    
-      
-        
-          <a href="https://getpocket.com/@braveCheng" class="iconfont icon-pocket" title="pocket"></a>
-        
-      
-    
-    
-    
-      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
-    
-  </div>
-
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
-  </span>
-  
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
-  </span>
-
-  <span class="copyright-year">
-    
-    &copy; 
-    
-    2017
-
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">Bravist</span>
-  </span>
-</div>
-      </footer>
-
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
-      </div>
-    </div>
-
-    
-
-
+    </entry>
     
   
-
-
-
-
-
   
-    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
-  
-
-
-    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
-<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
-
-    
-  <script type="text/html" id="search-result">
-    <article class="post">
-      <header class="post-header">
-        <h1 class="post-title">
-          <a href="$url$" class="post-link">
-            $title$
-          </a>
-        </h1>
-      </header>
-      <div class="post-content">
-        $content$
-        <div class="read-more">
-          <a href="$url$" class="read-more-link">
-            阅读更多
-          </a>
-        </div>
-      </div>
-    </article>
-  </script>
-  <script type="text/html" id="no-search-result">
-    <div class="no-result">
-      <h2>No result found!</h2>
-    </div>
-  </script>
-  <script type="text/javascript" src="/js/src/search.js?v=2.4.x"></script>
-
-  </body>
-</html>
+</search>

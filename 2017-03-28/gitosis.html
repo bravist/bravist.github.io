@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="zh-cn">
   <head>
     
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -22,13 +22,12 @@
 
 
 
-
   <link rel="alternate" href="/atom.xml" title="Bravist">
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
 
 
 
@@ -87,19 +86,23 @@
 <meta name="twitter:image" content="https://chenghuiyong.com/images/gitosis/-裸仓库.png">
 
 
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
-<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
 
 
 
 
 
-<script type="text/javascript">
-  var themeConfig = {
-    fancybox: {
-      enable: false
-    },
-  };
+<script>
+  var CONFIG = {
+    search: true,
+    searchPath: "/search.xml",
+    fancybox: true,
+    toc: true,
+  }
 </script>
 
 
@@ -119,48 +122,109 @@
 
 
 
-    <title> 安装Git服务&使用Gitosis管理成员、项目并做项目授权 - Bravist </title>
+    <title> 安装Git服务&使用Gitosis管理成员、项目并做项目授权 · Bravist </title>
   </head>
 
-  <body>
-    <div id="page">
-      <header id="masthead"><div class="site-header-inner">
-    <h1 class="site-title">
-        <a href="/." class="logo">Bravist</a>
-    </h1>
-
-    <nav id="nav-top">
-        
-            <ul id="menu-top" class="nav-top-items">
-                
-                    <li class="menu-item">
-                        <a href="/archives">
-                            
-                            
-                                Archives
-                            
-                        </a>
-                    </li>
-                
-                    <li class="menu-item">
-                        <a href="/about">
-                            
-                            
-                                About
-                            
-                        </a>
-                    </li>
-                
-            </ul>
-        
-  </nav>
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Bravist</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </div>
 
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Bravist</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
       </header>
-      <div id="content">
-        
-    <div id="primary">
-        
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
   <article class="post">
     <header class="post-header">
       <h1 class="post-title">
@@ -169,16 +233,26 @@
         
       </h1>
 
-      <time class="post-time">
-          3月 28 2017
-      </time>
+      <div class="post-meta">
+        <span class="post-time">
+          2017年3月28日
+        </span>
+      </div>
     </header>
 
-
-
     
-            <div class="post-content">
-            <blockquote>
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#弄清楚关键词眼与概念"><span class="toc-text">弄清楚关键词眼与概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git安装"><span class="toc-text">Git安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Gitosis管理git用户与授权"><span class="toc-text">Gitosis管理git用户与授权</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、Gitosis-的工作依赖于某些-Python-工具，所以首先要安装-Python-的-setuptools-包"><span class="toc-text">1、Gitosis 的工作依赖于某些 Python 工具，所以首先要安装 Python 的 setuptools 包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、从-Gitosis-项目主页克隆并安装"><span class="toc-text">2、从 Gitosis 项目主页克隆并安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、初始化Gitosis"><span class="toc-text">3、初始化Gitosis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、配置Gitosis"><span class="toc-text">4、配置Gitosis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-8-25更新"><span class="toc-text">2015-8-25更新</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资源"><span class="toc-text">参考资源</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <blockquote>
 <p>这是一篇实际的操作文档，里面的大部分图都是自己亲手截屏，力求达到真实并希望帮助到更多的遇到类似问题的困惑者。如果遇到问题，可以直接在文章最下面联系到我，也欢迎拍砖。</p>
 </blockquote>
 <h1 id="弄清楚关键词眼与概念"><a href="#弄清楚关键词眼与概念" class="headerlink" title="弄清楚关键词眼与概念"></a>弄清楚关键词眼与概念</h1><p><strong><em>裸仓库（bare repository）</em></strong></p>
@@ -245,19 +319,48 @@
 <li><a href="https://stackoverflow.com/questions/25115959/gitosis-init-error-traceback-most-recent-call-last" target="_blank" rel="external">gitosis-init error | Traceback (most recent call last)</a></li>
 </ul>
 
-            </div>
-          
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+  <div class="post-reward">
+    <input type="checkbox" name="reward" id="reward" hidden />
+    <label class="reward-button" for="reward">赞赏支持</label>
+    <div class="qr-code">
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/reward/wechat.png" title="wechat">
+        </label>
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/reward/alipay.png" title="alipay">
+        </label>
+      
+    </div>
+  </div>
+
+    
 
     
       <footer class="post-footer">
-        <div class="post-tags">
-          
-            <a href="/tags/Git/">Git</a>
-          
-            <a href="/tags/Gitosis/">Gitosis</a>
-          
-        </div>
-
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Git/">Git</a>
+            
+              <a href="/tags/Gitosis/">Gitosis</a>
+            
+          </div>
+        
         
         
   <nav class="post-nav">
@@ -265,18 +368,22 @@
       <a class="prev" href="/2017-03-31/showdowsocks-for-iterm2.html">
         <i class="iconfont icon-left"></i>
         <span class="prev-text nav-default">在macOS终端或者iTerm2中使用Shadowsocks畅游World Web</span>
-        <span class="prev-text nav-mobile">Prev</span>
+        <span class="prev-text nav-mobile">上一篇</span>
       </a>
     
     
   </nav>
 
-        
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
   <div class="comments" id="comments">
     
-    <div style="text-align:center;">
-        <button class="btn" id="load-disqus" onclick="disqus.load();">加载 Disqus 评论</button>
-    </div>
       <div id="disqus_thread">
         <noscript>
           Please enable JavaScript to view the
@@ -287,63 +394,129 @@
   </div>
 
 
-      </footer>
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
     
-  </article>
-
-    </div>
-
-      </div>
-
-      <footer id="colophon"><span class="copyright-year">
+      
+        
+          <a href="mailto:chenghuiyong1987@gmail.com" class="iconfont icon-email" title="email"></a>
+        
+      
     
-        &copy;
+      
+    
+      
+        
+          <a href="https://twitter.com/bravecheng" class="iconfont icon-twitter" title="twitter"></a>
+        
+      
+    
+      
+        
+          <a href="https://www.facebook.com/brave.cheng.7" class="iconfont icon-facebook" title="facebook"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="https://plus.google.com/u/0/108959885208595290221" class="iconfont icon-google" title="google"></a>
+        
+      
+    
+      
+        
+          <a href="https://github.com/bravist" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+        
+          <a href="http://weibo.com/1197013323" class="iconfont icon-weibo" title="weibo"></a>
+        
+      
+    
+      
+        
+          <a href="https://www.zhihu.com/people/cheng-hui-yong/" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+      
+    
+      
+        
+          <a href="https://getpocket.com/@braveCheng" class="iconfont icon-pocket" title="pocket"></a>
+        
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
     
     2017
-    <span class="footer-author">Bravist</span>
-</span>
 
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Bravist</span>
+  </span>
+</div>
       </footer>
 
       <div class="back-to-top" id="back-to-top">
         <i class="iconfont icon-up"></i>
       </div>
     </div>
+
     
-
-<script type="text/javascript">
-  var disqus_shortname = 'bravist';
-  var disqus_identifier = '2017-03-28/gitosis.html';
-
-  var disqus_title = "安装Git服务&使用Gitosis管理成员、项目并做项目授权";
-
-
-  var disqus = {
-    load : function disqus(){
-        if(typeof DISQUS !== 'object') {
-          (function () {
-          var s = document.createElement('script'); s.async = true;
-          s.type = 'text/javascript';
-          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-          }());
-          $('#load-disqus').remove(); ///加载后移除按钮
-        }
-    }
-  }
+  
 
   
+  <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = disqus_url;
-        this.page.identifier = disqus_identifier;
-        this.page.title = disqus_title;
+        this.page.url = 'https://www.chenghuiyong.com/2017-03-28/gitosis.html';
+        this.page.identifier = '2017-03-28/gitosis.html';
+        this.page.title = '安装Git服务&使用Gitosis管理成员、项目并做项目授权';
     };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//bravist.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
   
 
-</script>
+
 
 
     
+  
+
 
 
 
@@ -353,10 +526,43 @@
   
 
   
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
 
-    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
-<script type="text/javascript" src="/js/src/gas.js?v=1.1"></script>
-<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  <script type="text/html" id="search-result">
+    <article class="post">
+      <header class="post-header">
+        <h1 class="post-title">
+          <a href="$url$" class="post-link">
+            $title$
+          </a>
+        </h1>
+      </header>
+      <div class="post-content">
+        $content$
+        <div class="read-more">
+          <a href="$url$" class="read-more-link">
+            阅读更多
+          </a>
+        </div>
+      </div>
+    </article>
+  </script>
+  <script type="text/html" id="no-search-result">
+    <div class="no-result">
+      <h2>No result found!</h2>
+    </div>
+  </script>
+  <script type="text/javascript" src="/js/src/search.js?v=2.4.x"></script>
 
   </body>
 </html>

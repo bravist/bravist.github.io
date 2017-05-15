@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="zh-cn">
   <head>
     
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -17,8 +17,7 @@
 
 
 
-  <meta name="keywords" content="NodeJS,Webhooks,Gitlab,Git," />
-
+  <meta name="keywords" content="Git,NodeJS,Webhooks,Gitlab," />
 
 
 
@@ -28,7 +27,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
 
 
 
@@ -54,19 +53,23 @@
 <meta name="twitter:image" content="https://chenghuiyong.com/images/Webhooks/docker-ps.png">
 
 
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
-<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
 
 
 
 
 
-<script type="text/javascript">
-  var themeConfig = {
-    fancybox: {
-      enable: false
-    },
-  };
+<script>
+  var CONFIG = {
+    search: true,
+    searchPath: "/search.xml",
+    fancybox: true,
+    toc: true,
+  }
 </script>
 
 
@@ -86,48 +89,109 @@
 
 
 
-    <title> NodeJS Webhooks 实现代码自动部署 - Bravist </title>
+    <title> NodeJS Webhooks 实现代码自动部署 · Bravist </title>
   </head>
 
-  <body>
-    <div id="page">
-      <header id="masthead"><div class="site-header-inner">
-    <h1 class="site-title">
-        <a href="/." class="logo">Bravist</a>
-    </h1>
-
-    <nav id="nav-top">
-        
-            <ul id="menu-top" class="nav-top-items">
-                
-                    <li class="menu-item">
-                        <a href="/archives">
-                            
-                            
-                                Archives
-                            
-                        </a>
-                    </li>
-                
-                    <li class="menu-item">
-                        <a href="/about">
-                            
-                            
-                                About
-                            
-                        </a>
-                    </li>
-                
-            </ul>
-        
-  </nav>
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Bravist</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </div>
 
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Bravist</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
       </header>
-      <div id="content">
-        
-    <div id="primary">
-        
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
   <article class="post">
     <header class="post-header">
       <h1 class="post-title">
@@ -136,16 +200,26 @@
         
       </h1>
 
-      <time class="post-time">
-          4月 6 2017
-      </time>
+      <div class="post-meta">
+        <span class="post-time">
+          2017年4月6日
+        </span>
+      </div>
     </header>
 
-
-
     
-            <div class="post-content">
-            <p>​在我的<a href="https://github.com/bravist" target="_blank" rel="external">Github</a>中有两个关于Gitlab代码自动部署的项目，一个是PHP版本的<a href="https://github.com/bravist/gitlab-webhook-php" target="_blank" rel="external">Gitlab Webhooks</a>，另外一个是NodeJS版本的<a href="https://github.com/bravist/node-gitlab-hook" target="_blank" rel="external">Gitlab Webhooks</a>。之前我在社区分享过PHP版本的Gitlab Webhooks，可能大部分浏览过的同学会照着这篇教程亲自尝试安装部署。在这篇文章里，我会推荐使用NodeJS版本的Gitlab Webhooks并解释为什么会建议去使用它。</p>
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-安装Node环境"><span class="toc-text">1. 安装Node环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-安装NodeJS-Gitlabhook扩展包"><span class="toc-text">2. 安装NodeJS Gitlabhook扩展包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-安装NodeJS-进程管理工具PM2"><span class="toc-text">3. 安装NodeJS 进程管理工具PM2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-运行NodeJS-Gitlabhook"><span class="toc-text">4.  运行NodeJS Gitlabhook</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-在Gitlab仓库中配置Webhooks"><span class="toc-text">5. 在Gitlab仓库中配置Webhooks</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-提交版本并测试"><span class="toc-text">6. 提交版本并测试</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>​在我的<a href="https://github.com/bravist" target="_blank" rel="external">Github</a>中有两个关于Gitlab代码自动部署的项目，一个是PHP版本的<a href="https://github.com/bravist/gitlab-webhook-php" target="_blank" rel="external">Gitlab Webhooks</a>，另外一个是NodeJS版本的<a href="https://github.com/bravist/node-gitlab-hook" target="_blank" rel="external">Gitlab Webhooks</a>。之前我在社区分享过PHP版本的Gitlab Webhooks，可能大部分浏览过的同学会照着这篇教程亲自尝试安装部署。在这篇文章里，我会推荐使用NodeJS版本的Gitlab Webhooks并解释为什么会建议去使用它。</p>
 <p>​PHP版本Gitlab Webhooks 主要检查当前提交<code>Git</code>版本分支并执行不同<code>Linux Shell</code>脚本，实现项目代码的自动部署，了解PHP知识的同学很容易理解它的思想和逻辑，为什么我不推荐使用它呢？</p>
 <p>​<strong>第一、克隆<code>https://github.com/bravist/gitlab-webhook-php</code>后，需要多次修改项目配置信息和依赖运行主机目录</strong></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#查看 gitlab.php</span></div><div class="line"></div><div class="line">$access_token = <span class="string">'MmNmMGRmMGI2Y2EyYjY3NzFjMzRjODkzZTQ3NjY5M2Y='</span>;</div><div class="line"><span class="comment">##这里需要设置访问令牌，避免非法服务器访问Webhooks地址</span></div><div class="line"></div><div class="line">$access_ip = <span class="keyword">array</span>(<span class="string">'&#123;server&#125;'</span>);</div><div class="line"><span class="comment">##允许访问IP地址，必须修改此地址，否则无法访问</span></div><div class="line"></div><div class="line">exec(<span class="string">"/mnt/www/&#123;project&#125;/public/gitlab-webhook-php/master_deploy.sh"</span>);</div><div class="line"><span class="comment">##这里的project需要设置为服务器当前运行项目的路径地址</span></div><div class="line"></div><div class="line"><span class="comment">#查看 develop_deploy.sh</span></div><div class="line"></div><div class="line">cd /mnt/www/&#123;project&#125;</div><div class="line"><span class="comment">##同样的，在Shell脚本中，也需要配置项目的路径地址</span></div></pre></td></tr></table></figure>
@@ -180,23 +254,52 @@
 <h4 id="6-提交版本并测试"><a href="#6-提交版本并测试" class="headerlink" title="6. 提交版本并测试"></a>6. 提交版本并测试</h4><p>在你的本地开发仓库中，执行<code>git push</code>，进入CentOS服务器检查代码是否自动同步。</p>
 <p>使用NodeJS版本的Gitlab Webhooks解除了与Web服务器强依赖关系，同时服务器运行环境源码保持干净灵活，非常适合Docker的运行环境。另外，此项目不仅仅可以运行在Gitlab版本仓库中，同样也可以运行在Github、Coding等运行环境中。</p>
 
-            </div>
-          
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+  <div class="post-reward">
+    <input type="checkbox" name="reward" id="reward" hidden />
+    <label class="reward-button" for="reward">赞赏支持</label>
+    <div class="qr-code">
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/reward/wechat.png" title="wechat">
+        </label>
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/reward/alipay.png" title="alipay">
+        </label>
+      
+    </div>
+  </div>
+
+    
 
     
       <footer class="post-footer">
-        <div class="post-tags">
-          
-            <a href="/tags/NodeJS/">NodeJS</a>
-          
-            <a href="/tags/Webhooks/">Webhooks</a>
-          
-            <a href="/tags/Gitlab/">Gitlab</a>
-          
-            <a href="/tags/Git/">Git</a>
-          
-        </div>
-
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Git/">Git</a>
+            
+              <a href="/tags/NodeJS/">NodeJS</a>
+            
+              <a href="/tags/Webhooks/">Webhooks</a>
+            
+              <a href="/tags/Gitlab/">Gitlab</a>
+            
+          </div>
+        
         
         
   <nav class="post-nav">
@@ -204,24 +307,28 @@
       <a class="prev" href="/2017-04-21/centos-lnmp.html">
         <i class="iconfont icon-left"></i>
         <span class="prev-text nav-default">如何安装并配置LNMP环境在CentOS 7中</span>
-        <span class="prev-text nav-mobile">Prev</span>
+        <span class="prev-text nav-mobile">上一篇</span>
       </a>
     
     
       <a class="next" href="/2017-03-31/showdowsocks-for-iterm2.html">
         <span class="next-text nav-default">在macOS终端或者iTerm2中使用Shadowsocks畅游World Web</span>
-        <span class="prev-text nav-mobile">Next</span>
+        <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
     
   </nav>
 
-        
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
   <div class="comments" id="comments">
     
-    <div style="text-align:center;">
-        <button class="btn" id="load-disqus" onclick="disqus.load();">加载 Disqus 评论</button>
-    </div>
       <div id="disqus_thread">
         <noscript>
           Please enable JavaScript to view the
@@ -232,63 +339,129 @@
   </div>
 
 
-      </footer>
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
     
-  </article>
-
-    </div>
-
-      </div>
-
-      <footer id="colophon"><span class="copyright-year">
+      
+        
+          <a href="mailto:chenghuiyong1987@gmail.com" class="iconfont icon-email" title="email"></a>
+        
+      
     
-        &copy;
+      
+    
+      
+        
+          <a href="https://twitter.com/bravecheng" class="iconfont icon-twitter" title="twitter"></a>
+        
+      
+    
+      
+        
+          <a href="https://www.facebook.com/brave.cheng.7" class="iconfont icon-facebook" title="facebook"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="https://plus.google.com/u/0/108959885208595290221" class="iconfont icon-google" title="google"></a>
+        
+      
+    
+      
+        
+          <a href="https://github.com/bravist" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+        
+          <a href="http://weibo.com/1197013323" class="iconfont icon-weibo" title="weibo"></a>
+        
+      
+    
+      
+        
+          <a href="https://www.zhihu.com/people/cheng-hui-yong/" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+      
+    
+      
+        
+          <a href="https://getpocket.com/@braveCheng" class="iconfont icon-pocket" title="pocket"></a>
+        
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
     
     2017
-    <span class="footer-author">Bravist</span>
-</span>
 
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Bravist</span>
+  </span>
+</div>
       </footer>
 
       <div class="back-to-top" id="back-to-top">
         <i class="iconfont icon-up"></i>
       </div>
     </div>
+
     
-
-<script type="text/javascript">
-  var disqus_shortname = 'bravist';
-  var disqus_identifier = '2017-04-06/nodejs-webhooks.html';
-
-  var disqus_title = "NodeJS Webhooks 实现代码自动部署";
-
-
-  var disqus = {
-    load : function disqus(){
-        if(typeof DISQUS !== 'object') {
-          (function () {
-          var s = document.createElement('script'); s.async = true;
-          s.type = 'text/javascript';
-          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-          }());
-          $('#load-disqus').remove(); ///加载后移除按钮
-        }
-    }
-  }
+  
 
   
+  <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = disqus_url;
-        this.page.identifier = disqus_identifier;
-        this.page.title = disqus_title;
+        this.page.url = 'https://www.chenghuiyong.com/2017-04-06/nodejs-webhooks.html';
+        this.page.identifier = '2017-04-06/nodejs-webhooks.html';
+        this.page.title = 'NodeJS Webhooks 实现代码自动部署';
     };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//bravist.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
   
 
-</script>
+
 
 
     
+  
+
 
 
 
@@ -298,10 +471,43 @@
   
 
   
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
 
-    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
-<script type="text/javascript" src="/js/src/gas.js?v=1.1"></script>
-<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  <script type="text/html" id="search-result">
+    <article class="post">
+      <header class="post-header">
+        <h1 class="post-title">
+          <a href="$url$" class="post-link">
+            $title$
+          </a>
+        </h1>
+      </header>
+      <div class="post-content">
+        $content$
+        <div class="read-more">
+          <a href="$url$" class="read-more-link">
+            阅读更多
+          </a>
+        </div>
+      </div>
+    </article>
+  </script>
+  <script type="text/html" id="no-search-result">
+    <div class="no-result">
+      <h2>No result found!</h2>
+    </div>
+  </script>
+  <script type="text/javascript" src="/js/src/search.js?v=2.4.x"></script>
 
   </body>
 </html>
