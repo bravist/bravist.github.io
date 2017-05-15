@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Bravist</title>
+  <subtitle>互联网应用后端开发者、架构师</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://www.chenghuiyong.com/"/>
+  <updated>2017-05-15T08:19:40.000Z</updated>
+  <id>https://www.chenghuiyong.com/</id>
+  
+  <author>
+    <name>Bravist</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>macOS 安装 iTerm2 + Fish Shell</title>
+    <link href="https://www.chenghuiyong.com/2017-05-15/fish-shell.html"/>
+    <id>https://www.chenghuiyong.com/2017-05-15/fish-shell.html</id>
+    <published>2017-05-15T08:18:46.000Z</published>
+    <updated>2017-05-15T08:19:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p><strong>Unix shell</strong>，一种<a href="https://zh.wikipedia.org/wiki/%E6%AE%BC%E5%B1%A4" target="_blank" rel="external">壳层</a>与<a href="https://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2" target="_blank" rel="external">命令行界面</a>，是<a href="https://zh.wikipedia.org/wiki/Unix" target="_blank" rel="external">Unix</a><a href="https://zh.wikipedia.org/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F" target="_blank" rel="external">操作系统</a>下传统的用户和计算机的交互界面。第一个用户直接输入<a href="https://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4_(%E8%AE%A1%E7%AE%97%E6%9C%BA" target="_blank" rel="external">命令</a>)来执行各种各样的任务。</p>
+<p>普通意义上的shell就是可以接受用户输入命令的程序。它之所以被称作shell是因为它隐藏了操作系统低层的细节。同样的Unix下的图形用户界面<a href="https://zh.wikipedia.org/wiki/GNOME" target="_blank" rel="external">GNOME</a>和<a href="https://zh.wikipedia.org/wiki/KDE" target="_blank" rel="external">KDE</a>，有时也被叫做“虚拟shell”或“图形shell”。</p>
+<p> — 来自维基百科</p>
+</blockquote>
+<p>Fish Shell是*unix平台中所有Shell中的一种Shell，相比系统默认Shell <code>bash</code>，提供更多漂亮的、实用的、强大的命令行交互。 </p>
+<blockquote>
+<p><strong>fish</strong>是一个<a href="https://zh.wikipedia.org/wiki/Unix_shell" target="_blank" rel="external">Unix shell</a>。 fish这个名字是<em>friendly interactive shell</em>的缩写。 fish专注于交互应用、易用性和友好的用户体验。fish的设计目的是通过容易发现，记住和使用的方式为用户提供一套丰富、强大的功能 。fish于2005年在<a href="https://zh.wikipedia.org/wiki/GNU%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E8%AE%B8%E5%8F%AF%E8%AF%81" target="_blank" rel="external">GNU通用公共许可证</a>条款下正式发布。fish 是一款<a href="https://zh.wikipedia.org/wiki/%E8%87%AA%E7%94%B1%E8%BD%AF%E4%BB%B6" target="_blank" rel="external">自由软件</a>。</p>
+</blockquote>
+<p>主要特性</p>
+<ul>
+<li>优秀的tab补全功能</li>
+<li>具有广泛错误检查的<a href="https://zh.wikipedia.org/wiki/%E8%AA%9E%E6%B3%95%E9%AB%98%E4%BA%AE%E5%BA%A6%E9%A1%AF%E7%A4%BA" target="_blank" rel="external">语法高亮度显示</a></li>
+<li>支持<a href="https://zh.wikipedia.org/wiki/X_Window%E7%B3%BB%E7%B5%B1" target="_blank" rel="external">X窗口系统</a>和<a href="http://en.wikipedia.org/wiki/Clipboard_(software" target="_blank" rel="external">剪贴板</a>)</li>
+<li>基于<a href="http://en.wikipedia.org/wiki/Terminfo" target="_blank" rel="external">terminfo</a>的智能的<a href="https://zh.wikipedia.org/wiki/%E7%B5%82%E7%AB%AF" target="_blank" rel="external">终端</a>处理</li>
+<li>可以查询的<a href="http://en.wikipedia.org/wiki/Command_history" target="_blank" rel="external">命令历史</a></li>
+</ul>
+<p>在macOS 中推荐使用homebrew安装 fish shell，因为你能够非常方便的卸载fish shell</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">➜  logs git:(develop) brew install fish</div><div class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/fish-2.5.0.sierra.bottle.tar.gz</div><div class="line">######################################################################## 100.0%</div><div class="line">==&gt; Pouring fish-2.5.0.sierra.bottle.tar.gz</div><div class="line">==&gt; Using the sandbox</div><div class="line">==&gt; Caveats</div><div class="line">You will need to add:</div><div class="line">  /usr/local/bin/fish</div><div class="line">to /etc/shells.</div><div class="line"></div><div class="line">Then run:</div><div class="line">  chsh -s /usr/local/bin/fish</div><div class="line">to make fish your default shell.</div><div class="line">==&gt; Summary</div><div class="line">🍺  /usr/local/Cellar/fish/2.5.0: 864 files, 6.4MB</div></pre></td></tr></table></figure>
+<p><code>brew install fish</code> 刚在你的<code>/etc/shells</code>文件中添加了<code>/usr/local/bin/fish</code>文本行。如果你想让fish 成为系统默认的shell，使用<code>chsh -s /usr/local/bin/fish</code> 切换，如果你正运行在其他的shell中，可以使用<code>fish</code>快速切换到fish shell。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">➜  logs git:(develop) fish</div><div class="line">Welcome to fish, the friendly interactive shell</div><div class="line">Type help for instructions on how to use fish</div><div class="line"> ~/A/P/b/s/logs   develop  </div></pre></td></tr></table></figure>
+<p>你可以先查看macOS中正在使用的shell</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">➜  ~ echo $SHELL</div><div class="line">/bin/zsh</div><div class="line">➜  ~</div></pre></td></tr></table></figure>
+<p>同时查询macOS 系统中已经安装的所有shells。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">➜  ~ cat /etc/shells</div><div class="line"># List of acceptable shells for chpass(1).</div><div class="line"># Ftpd will not allow users to connect who are not using</div><div class="line"># one of these shells.</div><div class="line"></div><div class="line">/bin/bash</div><div class="line">/bin/csh</div><div class="line">/bin/ksh</div><div class="line">/bin/sh</div><div class="line">/bin/tcsh</div><div class="line">/usr/local/bin/fish</div><div class="line">/bin/zsh</div><div class="line">➜  ~</div></pre></td></tr></table></figure>
+<p>最后，让fish shell 成为默认的shell。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">➜  ~ cat /etc/shells</div><div class="line"># List of acceptable shells for chpass(1).</div><div class="line"># Ftpd will not allow users to connect who are not using</div><div class="line"># one of these shells.</div><div class="line"></div><div class="line">/bin/bash</div><div class="line">/bin/csh</div><div class="line">/bin/ksh</div><div class="line">/bin/sh</div><div class="line">/bin/tcsh</div><div class="line">/usr/local/bin/fish</div><div class="line">/bin/zsh</div><div class="line">➜  ~ chsh -s /usr/local/bin/fish</div><div class="line">Changing shell for chenghuiyong.</div><div class="line">Password for chenghuiyong:</div><div class="line">➜  ~</div></pre></td></tr></table></figure>
+<p>安装fish shell仅仅能体验部分比<code>bash</code>更好的体验，推荐在安装fish shell 框架 - oh-my-fish，他提供了更加丰富的插件管理、主题内容让你的shell看着更加“牛逼”。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">➜  ~ curl -L https://get.oh-my.fish | fish</div><div class="line">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</div><div class="line">                                 Dload  Upload   Total   Spent    Left  Speed</div><div class="line">100   194  100   194    0     0    114      0  0:00:01  0:00:01 --:--:--   114</div><div class="line">100 16533  100 16533    0     0   5244      0  0:00:03  0:00:03 --:--:-- 14696</div><div class="line">Existing installation detected at /Users/chenghuiyong/.local/share/omf</div><div class="line">Would you like to remove the existing installation? (y/N): y</div><div class="line">This will uninstall Oh My Fish and all plugins and themes from</div><div class="line">/Users/chenghuiyong/.local/share/omf.</div><div class="line">Are you sure you want to continue? (y/N): y</div><div class="line">Uninstalling from /Users/chenghuiyong/.local/share/omf...</div><div class="line">Uninstall complete</div><div class="line">Installing Oh My Fish to /Users/chenghuiyong/.local/share/omf...</div><div class="line">Using release channel &quot;stable&quot;.</div><div class="line">Cloning master from https://github.com/oh-my-fish/oh-my-fish.git...</div><div class="line">Writing bootstrap to /Users/chenghuiyong/.config/fish/conf.d/omf.fish...</div><div class="line">Setting up Oh My Fish configuration...</div><div class="line">Updating https://github.com/oh-my-fish/packages-main master... Done!</div><div class="line">Installing package default</div><div class="line">✔ default successfully installed.</div><div class="line">Installation successful!</div></pre></td></tr></table></figure>
+<p>默认的主题显示如下，这里推荐使用主题 - agnoster</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">⋊&gt; ~/A/P/bravist.com on develop ◦ omf install agnoster                                                                                                13:22:35</div><div class="line">Updating https://github.com/oh-my-fish/packages-main master... Done!</div><div class="line">Installing package agnoster</div><div class="line">✔ agnoster successfully installed.</div></pre></td></tr></table></figure>
+<p>结合字体<a href="https://github.com/tonsky/FiraCode" target="_blank" rel="external">firacode</a>让你的iTerm2 看起来漂亮极了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">  ~  brew tap caskroom/fonts</div><div class="line">Updating Homebrew...</div><div class="line"></div><div class="line">  ~  brew cask install font-fira-code</div><div class="line">Warning: A Cask for font-fira-code is already installed.</div><div class="line"></div><div class="line">To re-install font-fira-code, run:</div><div class="line">  brew cask reinstall font-fira-code</div><div class="line"> ~  brew cask reinstall font-fira-code</div></pre></td></tr></table></figure>
+<p>另外，推荐一款iTerm2 主题 - <a href="https://draculatheme.com/iterm/" target="_blank" rel="external">Dracula</a></p>
+<p>相关资料</p>
+<ul>
+<li><a href="https://github.com/fish-shell/fish-shell" target="_blank" rel="external">面向用户友好的Shell - fish shell</a></li>
+<li><a href="https://github.com/fisherman/fisher+ man" target="_blank" rel="external">fish shell插件管理工具 - fisherman</a></li>
+<li><a href="https://github.com/oh-my-fish/oh-my-fish" target="_blank" rel="external">fish shell 框架 - oh-my-fish</a></li>
+<li><a href="https://jigsawye.com/2016/06/20/install-fish-shell-on-os-x/" target="_blank" rel="external">在 OSX 使用 Fish shell 取代 bash/zsh</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Unix shell&lt;/strong&gt;，一种&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E6%AE%BC%E5%B1%A4&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;壳层&lt;/
+    
+    </summary>
+    
+    
+      <category term="macOS" scheme="https://www.chenghuiyong.com/tags/macOS/"/>
+    
+      <category term="iTerm2" scheme="https://www.chenghuiyong.com/tags/iTerm2/"/>
+    
+      <category term="Fish Shell" scheme="https://www.chenghuiyong.com/tags/Fish-Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何安装并配置LNMP环境在CentOS 7中</title>
+    <link href="https://www.chenghuiyong.com/2017-04-21/centos-lnmp.html"/>
+    <id>https://www.chenghuiyong.com/2017-04-21/centos-lnmp.html</id>
+    <published>2017-04-21T15:32:48.000Z</published>
+    <updated>2017-05-15T08:18:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>LNMP 是一组应用程序服务组合的缩写，用于运用基于PHP脚本语言的Web应用程序。它主要由四部分内容组成，<strong>L</strong>inux 操作系统（基于CentOS linux发行版），<strong>N</strong>ginx web服务器，<strong>M</strong>ysql 数据库服务器（使用MariaDB），<strong>P</strong>HP 动态脚本解析器PHP-FPM。</p>
+<p>开始安装<strong>LNMP</strong>服务之前，推荐优化配置一下您的CentOS 7作业环境。</p>
+<h2 id="初始化配置CentOS-7"><a href="#初始化配置CentOS-7" class="headerlink" title="初始化配置CentOS 7"></a>初始化配置CentOS 7</h2><p>假设您有一台新购买的CentOS 7 服务器，同时已经创建了<code>root</code>账户并能够使用<code>ssh</code> 方式登录。</p>
+<h3 id="步骤一、创建一个新用户"><a href="#步骤一、创建一个新用户" class="headerlink" title="步骤一、创建一个新用户"></a>步骤一、创建一个新用户</h3><p>使用您的<code>root</code>账户登录到您的服务器，下面的命令用于创建一个叫<code>bravist</code>的用户，仿照它创建一个您自己的账户。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">local$ ssh root@SERVER_IP_ADDRESS</div><div class="line"></div><div class="line"># adduser bravist</div></pre></td></tr></table></figure>
+<p>接着，为新用户设置一下登录密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># passwd bravist</div></pre></td></tr></table></figure>
+<p>输入一个比较强壮的密码并重复然后保存。</p>
+<h3 id="步骤二、设置新用户拥有Root账户权限"><a href="#步骤二、设置新用户拥有Root账户权限" class="headerlink" title="步骤二、设置新用户拥有Root账户权限"></a>步骤二、设置新用户拥有Root账户权限</h3><p>您刚刚创建的用户<code>bravist</code>默认拥有普通用户权限，但是，有时候您需要拥有更多权限处理一些高级的任务，此时就允许让新用户拥有更高的权限，执行用下面的命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># gpasswd -a bravist wheel</div></pre></td></tr></table></figure>
+<p>现在，您可以在命名的前面添加<code>sudo</code> 让其执行管理员的任务<code>sudo cat /etc/redhat-release</code></p>
+<h3 id="步骤三、上传本地SSH公钥"><a href="#步骤三、上传本地SSH公钥" class="headerlink" title="步骤三、上传本地SSH公钥"></a>步骤三、上传本地SSH公钥</h3><p>添加了新用户<code>bravist</code>后，在本地命令行终端可以直接登录了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">local$ ssh bravist@SERVER_IP_ADDRESS</div></pre></td></tr></table></figure>
+<p>输入密码，回车登录。我们也可以为本地用户创建一个ssh 公钥，然后将该公钥上传至服务器新用户<code>bravist</code> 授权文件中<code>.ssh/authorized_keys</code>。这样就可以无需每次输入<code>bravist</code>账户密码自动登录。</p>
+<p>在本地生成秘钥对，使用<code>ssh-keygen</code>然后输入密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">local$ ssh-keygen</div></pre></td></tr></table></figure>
+<p>回车后，会在您的“本地用户”主目录中创建<code>.ssh</code>目录和文件。在本地用户主目录中您会看到一个公钥<code>~/.ssh/id_rsa.pub</code>和一个私钥<code>~/.ssh/id_rsa</code>。</p>
+<p>接着，上传您的公钥至服务器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">local$ ssh-copy-id brave@SERVER_IP_ADDRESS</div></pre></td></tr></table></figure>
+<p>回车，输入密码后您本地的公钥会自动被写入到服务器的<code>/home/bravist/.ssh/authorized_keys</code>文件中。如果本地不能执行<code>ssh-copy-id</code>命令，您可以通过其他的方式上传并手动写入到上面的服务器文件中，PS：<code>手动上传并写入/home/bravist/.ssh/authorized_keys时，需要再次设置该文件的权限为600 chmod 600 /home/bravist/.ssh/authorized_keys</code>。</p>
+<h3 id="步骤四、切换Bash-Shell-为-ZSH"><a href="#步骤四、切换Bash-Shell-为-ZSH" class="headerlink" title="步骤四、切换Bash Shell 为 ZSH"></a>步骤四、切换Bash Shell 为 ZSH</h3><p>新配置Linux服务器默认使用<code>bash</code> Shell，推荐使用<code>ZSH</code>  shell，它提供更友好的主题和交互体验。</p>
+<p>安装ZSH</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum -y install zsh</div></pre></td></tr></table></figure>
+<p>查看服务器存在哪些shell和正在使用的shell</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ chsh -l</div><div class="line"></div><div class="line">$ echo $SHELL</div></pre></td></tr></table></figure>
+<p>修改默认shell为<code>zsh</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo chsh -s &quot;$(command -v zsh)&quot; &quot;$&#123;USER&#125;&quot;</div><div class="line"></div><div class="line">$ touch ~/.zshrc</div></pre></td></tr></table></figure>
+<p>确认是否修改成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ echo $SHELL</div></pre></td></tr></table></figure>
+<p>最后，推荐安装一下<code>zsh</code>的另外一个框架<code>on-my-zsh</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</div></pre></td></tr></table></figure>
+<p>到这里，你可以更加心情愉悦的使用您的服务器了。</p>
+<h2 id="开始安装LNMP"><a href="#开始安装LNMP" class="headerlink" title="开始安装LNMP"></a>开始安装LNMP</h2><h3 id="一、安装Nginx"><a href="#一、安装Nginx" class="headerlink" title="一、安装Nginx"></a>一、安装Nginx</h3><p>访问<a href="http://nginx.org/en/linux_packages.html" target="_blank" rel="external">Nginx官网</a>，查询Linux版本的Nignx发行版本。在您的<code>/etc/yum.repos.d/nginx.repo</code>文件中添加nginx yum仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo vi /etc/yum.repos.d/nginx.repo</div></pre></td></tr></table></figure>
+<p>添加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[nginx]</div><div class="line">name=nginx repo</div><div class="line">baseurl=http://nginx.org/packages/centos/7/$basearch/</div><div class="line">gpgcheck=0</div><div class="line">enabled=1</div></pre></td></tr></table></figure>
+<p>查看是否正确添加了nignx yum 远程仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum repolist</div></pre></td></tr></table></figure>
+<p>开始安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install -y nginx</div></pre></td></tr></table></figure>
+<p>启动nginx并设置开机自启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo systemctl start nginx</div><div class="line"></div><div class="line">$ sudo systemctl enable nginx</div></pre></td></tr></table></figure>
+<p>在本地访问您的服务器，确认IP能够访问你们的Web服务器。通常您可以这样做这个确认工作</p>
+<ul>
+<li><p>服务器是否启动了nginx并开启了80端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#80端口是否开启</div><div class="line">$ netstat -tunlp</div><div class="line"></div><div class="line">#是否存在nginx进程</div><div class="line">$ ps aux | grep nginx</div></pre></td></tr></table></figure>
+</li>
+<li><p>本地确认服务器防火墙是否允许访问80端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">local$ telnet SERVER_IP_ADDRESS 80</div><div class="line"></div><div class="line">Trying SERVER_IP_ADDRESS...</div><div class="line">Connected to SERVER_IP_ADDRESS.vultr.com.</div><div class="line">Escape character is &apos;^]&apos;.</div></pre></td></tr></table></figure>
+<p>如果没有看到类似下面的输出，您就需要配置一下服务器的防火墙。CentOS 7 中默认开启<code>firewalld</code>防火墙服务，防火墙服务可以自行<code>firewall-cmd --help</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#开启443端口</div><div class="line">$ sudo firewall-cmd --zone=public --add-service=https</div><div class="line"></div><div class="line">#开启80端口</div><div class="line">$ sudo firewall-cmd --zone=public --add-service=http</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="二、安装PHP"><a href="#二、安装PHP" class="headerlink" title="二、安装PHP"></a>二、安装PHP</h3><p>CentOS 7 使用 <code>yum</code> 安装PHP的版本默认是5.4，这里推荐使用PHP7大版本，修改php yum 仓库让其支持PHP 7。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#设置ius仓库</div><div class="line">$ sudo rpm -Uvh https://centos7.iuscommunity.org/ius-release.rpm</div><div class="line">#更新仓库</div><div class="line">$ sudo yum update</div></pre></td></tr></table></figure>
+<p>查找仓库中的PHP 7相关的软件包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum list | grep php70</div></pre></td></tr></table></figure>
+<p>因PHP项目不同，可能安装PHP扩展包也一直，这里我推荐一下项目经常会用到的一些PHP扩展包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$  sudo yum install -y php70u-fpm-nginx php70u-cli php70u-mysqlnd php70u-mbstring php70u-mcrypt php70u-xml php70u-gd php70u-json php70u-bcmath</div></pre></td></tr></table></figure>
+<p>PHP运行模式分两种，一种是服务器命令行运行模式PHP-CLI，一种是结合Web服务器动态解析PHP脚本并将结果返回给Web服务器模式PHP-FPM。我们安装两种模式。</p>
+<p>启动并设置开机自启动<code>php-fpm</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo systemctl start php-fpm</div><div class="line"></div><div class="line">$ sudo systemctl enable php-fpm</div></pre></td></tr></table></figure>
+<p>接下来，继续配置PHP-FPM环境</p>
+<ol>
+<li>修改文件<code>/etc/php-fpm.d/www.conf</code>使其监听脚本为sock方式</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$sudo vi /etc/php-fpm.d/www.conf</div></pre></td></tr></table></figure>
+<p>找到<code>listen = 127.0.0.1:9000</code>并添加注释，然后在下面添加文本<code>listen = /run/php-fpm/www.sock</code>，类似下面修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"></div><div class="line">; Note: This value is mandatory.</div><div class="line">;listen = 127.0.0.1:9000</div><div class="line">listen = /run/php-fpm/www.sock</div></pre></td></tr></table></figure>
+<p>查找<code>listen.acl_users = nginx</code> 并去掉注释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"></div><div class="line">;listen.acl_users = apache</div><div class="line">listen.acl_users = nginx</div></pre></td></tr></table></figure>
+<ol>
+<li>打开文件<code>/etc/nginx/conf.d/php-fpm.conf</code>，修改服务器监听脚本</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># PHP-FPM FastCGI server</div><div class="line"># network or unix domain socket configuration</div><div class="line"></div><div class="line">upstream php-fpm &#123;</div><div class="line">        #server 127.0.0.1:9000;</div><div class="line">        server unix:/run/php-fpm/www.sock;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>保存退出，接着打开文件<code>/etc/nginx/conf.d/default.conf</code>，修改<code>fastcgi_pass</code>值为<code>php-fpm</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">location ~ \.php$ &#123;</div><div class="line">      try_files $uri =404;</div><div class="line">      fastcgi_split_path_info ^(.+\.php)(/.+)$;</div><div class="line">      # fastcgi_pass unix:/var/run/php-fpm/php-fpm.sock;</div><div class="line">      fastcgi_pass php-fpm;</div><div class="line">      fastcgi_index index.php;</div><div class="line">      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</div><div class="line">      include fastcgi_params;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>重新启动nginx与php-fpm，你的Web与php环境已经配置完成。</p>
+<h3 id="三、安装MariaDB"><a href="#三、安装MariaDB" class="headerlink" title="三、安装MariaDB"></a>三、安装MariaDB</h3><p>MariaDB是Mysql官方维护的一个数据库开源分支，访问官网查看特性介绍。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install mariadb-server mariadb</div></pre></td></tr></table></figure>
+<p>启动MariaDB</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo systemctl start mariadb</div></pre></td></tr></table></figure>
+<p>设置开机自启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo systemctl enable mariadb</div></pre></td></tr></table></figure>
+<p>设置root账户密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo mysql_secure_installation</div></pre></td></tr></table></figure>
+<p>输入密码保存退出。</p>
+<h2 id="安装PHP-Composer"><a href="#安装PHP-Composer" class="headerlink" title="安装PHP Composer"></a>安装PHP Composer</h2><p>现代PHP开发者，需要掌握依赖包管理工具Composer，在国内，建议配置项目的仓库地址配置到<a href="https://pkg.phpcomposer.com/" target="_blank" rel="external">国内镜像</a>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ php -r &quot;copy(&apos;https://getcomposer.org/installer&apos;, &apos;composer-setup.php&apos;);&quot;</div><div class="line"></div><div class="line">$ php composer-setup.php</div><div class="line"></div><div class="line">$ sudo mv composer.phar /usr/local/bin/composer</div><div class="line"></div><div class="line">$ php -r &quot;unlink(&apos;composer-setup.php&apos;);&quot;</div></pre></td></tr></table></figure>
+<h2 id="安装进程管理工具Supervisor"><a href="#安装进程管理工具Supervisor" class="headerlink" title="安装进程管理工具Supervisor"></a>安装进程管理工具Supervisor</h2><p>安装python相关工具</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum -y install python-setuptools</div></pre></td></tr></table></figure>
+<p>使用<code>easy_install</code>安装<code>supervisor</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo easy_install supervisor</div></pre></td></tr></table></figure></p>
+<p>生成supervisor配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ echo_supervisord_conf &gt; /etc/supervisord.conf</div><div class="line"></div><div class="line">$ sudo mkdir -p /var/log/supervisor</div><div class="line"></div><div class="line">$ sudo mkdir -p /etc/supervisor/conf.d/</div><div class="line"></div><div class="line">$ sudo echo -e &quot;[include]\nfiles = /etc/supervisor/conf.d/*.conf&quot;&gt;&gt;/etc/supervisord.conf</div></pre></td></tr></table></figure></p>
+<p>启动supervisor服务，读取配置文件并更新<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ supervisord</div><div class="line"></div><div class="line">$ supervisorctl reread</div><div class="line"></div><div class="line">$ supervisorctl update</div><div class="line"></div><div class="line">$ supervisorctl restart all</div></pre></td></tr></table></figure></p>
+<h2 id="隐藏Nignx与PHP版本号"><a href="#隐藏Nignx与PHP版本号" class="headerlink" title="隐藏Nignx与PHP版本号"></a>隐藏Nignx与PHP版本号</h2><p>编辑文件<code>/etc/nginx/conf.d/default.conf</code>，并添加文本<code>server_tokens off;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ sudo vi /etc/nginx/conf.d/default.conf</div><div class="line">...</div><div class="line"></div><div class="line">#add server_tokens</div><div class="line">server_tokens off;</div></pre></td></tr></table></figure>
+<p>保存退出，继续打开文件<code>/etc/php.ini</code>，将<code>expose_php</code>参数值设置为<code>off</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ sudo vi /etc/php.ini</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">#设置expse_php=Off</div><div class="line">expose_php = Off</div></pre></td></tr></table></figure>
+<p>退出并重新启动<code>nginx</code>与<code>php-fpm</code>。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;LNMP 是一组应用程序服务组合的缩写，用于运用基于PHP脚本语言的Web应用程序。它主要由四部分内容组成，&lt;strong&gt;L&lt;/strong&gt;inux 操作系统（基于CentOS linux发行版），&lt;strong&gt;N&lt;/strong&gt;ginx web服务器，&lt;stron
+    
+    </summary>
+    
+    
+      <category term="CentOS" scheme="https://www.chenghuiyong.com/tags/CentOS/"/>
+    
+      <category term="LNMP" scheme="https://www.chenghuiyong.com/tags/LNMP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NodeJS Webhooks 实现代码自动部署</title>
+    <link href="https://www.chenghuiyong.com/2017-04-06/nodejs-webhooks.html"/>
+    <id>https://www.chenghuiyong.com/2017-04-06/nodejs-webhooks.html</id>
+    <published>2017-04-06T12:22:05.000Z</published>
+    <updated>2017-04-06T12:37:41.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>​在我的<a href="https://github.com/bravist" target="_blank" rel="external">Github</a>中有两个关于Gitlab代码自动部署的项目，一个是PHP版本的<a href="https://github.com/bravist/gitlab-webhook-php" target="_blank" rel="external">Gitlab Webhooks</a>，另外一个是NodeJS版本的<a href="https://github.com/bravist/node-gitlab-hook" target="_blank" rel="external">Gitlab Webhooks</a>。之前我在社区分享过PHP版本的Gitlab Webhooks，可能大部分浏览过的同学会照着这篇教程亲自尝试安装部署。在这篇文章里，我会推荐使用NodeJS版本的Gitlab Webhooks并解释为什么会建议去使用它。</p>
+<p>​PHP版本Gitlab Webhooks 主要检查当前提交<code>Git</code>版本分支并执行不同<code>Linux Shell</code>脚本，实现项目代码的自动部署，了解PHP知识的同学很容易理解它的思想和逻辑，为什么我不推荐使用它呢？</p>
+<p>​<strong>第一、克隆<code>https://github.com/bravist/gitlab-webhook-php</code>后，需要多次修改项目配置信息和依赖运行主机目录</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#查看 gitlab.php</span></div><div class="line"></div><div class="line">$access_token = <span class="string">'MmNmMGRmMGI2Y2EyYjY3NzFjMzRjODkzZTQ3NjY5M2Y='</span>;</div><div class="line"><span class="comment">##这里需要设置访问令牌，避免非法服务器访问Webhooks地址</span></div><div class="line"></div><div class="line">$access_ip = <span class="keyword">array</span>(<span class="string">'&#123;server&#125;'</span>);</div><div class="line"><span class="comment">##允许访问IP地址，必须修改此地址，否则无法访问</span></div><div class="line"></div><div class="line">exec(<span class="string">"/mnt/www/&#123;project&#125;/public/gitlab-webhook-php/master_deploy.sh"</span>);</div><div class="line"><span class="comment">##这里的project需要设置为服务器当前运行项目的路径地址</span></div><div class="line"></div><div class="line"><span class="comment">#查看 develop_deploy.sh</span></div><div class="line"></div><div class="line">cd /mnt/www/&#123;project&#125;</div><div class="line"><span class="comment">##同样的，在Shell脚本中，也需要配置项目的路径地址</span></div></pre></td></tr></table></figure>
+<p>亲身实践的同学应该清楚，配置信息依赖很其他项目运行环境，非常不灵活。</p>
+<p>​<strong>第二，运行PHP Webhooks需要Linux服务器提供Web与PHP服务，当服务器采用Docker运行环境构建时，PHP Webhooks就无法继续使用</strong></p>
+<p>最近几年，Docker大行其道，在DevOps领域已经是风生水起。我们自己编排了一套<a href="https://github.com/bravist/lnmp-docker" target="_blank" rel="external">Docker运行资源</a>，感兴趣的同学可以在5分钟内完成一个完整的PHP Web环境。推荐个人用户去<a href="https://www.digitalocean.com/" target="_blank" rel="external">DigitalOcean</a> 购买一台VPS安装CentOS7并尝试使用Docker。这里简要地描述一下编排资源：</p>
+<p><img src="https://chenghuiyong.com/images/Webhooks/docker-ps.png" alt="docker-ps"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># docker ps</div><div class="line"></div><div class="line">NAMES</div><div class="line"></div><div class="line">lnmpdocker_nginx_1 ## Nginx: Web 服务容器</div><div class="line"></div><div class="line">lnmpdocker_php-fpm_1 ## PHP-FPM: PHP脚本语言解释器，用于处理Web中的PHP脚本请求</div><div class="line"></div><div class="line">lnmpdocker_mariadb_1 ## MariaDB: Mysql另一个版本，数据库管理系统容器</div><div class="line"></div><div class="line">lnmpdocker_www_1 ## www: 虚拟主机目录，也即是CentOS宿主机上项目源码目录</div><div class="line"></div><div class="line">lnmpdocker_redis_1 ## Redis: Redis缓存服务容器</div></pre></td></tr></table></figure>
+<p>这里的每个容器都是一个独立的虚拟服务器，用于提供不同的服务。我们在CentOS 7宿主机（相对于Docker容器）上并未安装PHP脚本解释器，此时就无法运行PHP版本的Gitlab Webhooks。</p>
+<p>为提高Gitlab源码自动部署的灵活性和可用性，推荐使用NodeJS版本的Gitlab Webhooks。下面详细说明在CentOS 7中利用NodeJS版本的Gitlab Webhooks完成源码自动部署。</p>
+<h4 id="1-安装Node环境"><a href="#1-安装Node环境" class="headerlink" title="1. 安装Node环境"></a>1. 安装Node环境</h4><p>推荐使用Node版本管理工具<a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">## 使用curl工具下载安装</div><div class="line">$ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash</div><div class="line"></div><div class="line">## 在当前窗口使用nvm</div><div class="line">$ source ~/.bash_profile</div><div class="line"></div><div class="line">## 查看远程仓库Node版本</div><div class="line">$ nvm ls-remote</div><div class="line"></div><div class="line">## 选择Node版本执行安装</div><div class="line">$ nvm install v7.8.0</div><div class="line"></div><div class="line">## 查看已安装Node环境</div><div class="line">$ node -v</div></pre></td></tr></table></figure>
+<p>最新版本Node已经自动安装了包管理工具<code>npm</code>，国内用户推荐使用淘宝的镜像工具<code>cnpm</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## 使用cnpm替换npm</div><div class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
+<h4 id="2-安装NodeJS-Gitlabhook扩展包"><a href="#2-安装NodeJS-Gitlabhook扩展包" class="headerlink" title="2. 安装NodeJS Gitlabhook扩展包"></a>2. 安装NodeJS Gitlabhook扩展包</h4><p>进入NodeJS包管理在线仓库<a href="https://www.npmjs.com/" target="_blank" rel="external">npmjs</a>，搜索<code>gitlabhook</code>，可以查看相关配置信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">## 全局安装gitlabhook</div><div class="line">$ npm install --global gitlabhook</div><div class="line"></div><div class="line">##查看gitlabhook安装路径</div><div class="line">$ npm</div></pre></td></tr></table></figure>
+<p>配置<code>gitlabhook.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">##进入 ~/.nvm/versions/node/v7.8.0/lib/node_modules</div><div class="line">$ cd ~/.nvm/versions/node/v7.8.0/lib/node_modules/gitlabhook</div><div class="line"></div><div class="line">##复制gitlabhook.conf至/etc/gitlabhook.conf</div><div class="line">$ cp gitlabhook.conf /etc/gitlabhook.conf</div><div class="line"></div><div class="line">## 编辑/etc/gitlabhook.conf</div><div class="line">$ vi /etc/gitlabhook.conf</div><div class="line"></div><div class="line">&#123;</div><div class="line">  &quot;tasks&quot;: &#123;</div><div class="line">    &quot;*&quot;: [</div><div class="line">      &quot;echo &apos;GitLab Server: %s&apos; &gt; /tmp/gitlabhook.tmp&quot;,</div><div class="line">      &quot;echo &apos;Repository: %r&apos; &gt;&gt; /tmp/gitlabhook.tmp&quot;,</div><div class="line">      &quot;echo &apos;Repository branch: %b&apos; &gt;&gt; /tmp/gitlabhook.tmp&quot;,</div><div class="line">      &quot;echo &apos;Repository remote url: %g&apos; &gt;&gt; /tmp/gitlabhook.tmp&quot;,</div><div class="line">      &quot;echo $(date) &gt;&gt; /tmp/gitlabhook.tmp&quot;,</div><div class="line">      &quot;cd /mnt/www/%r &gt;&gt; /tmp/gitlabhook.tmp&quot;,</div><div class="line">      &quot;sudo -u www git checkout develop &gt;&gt; /tmp/gitlabhook.tmp&quot;,</div><div class="line">      &quot;sudo -u www git pull origin develop &gt;&gt; /tmp/gitlabhook.tmp&quot;</div><div class="line">    ]</div><div class="line">  &#125;,</div><div class="line">  &quot;keep&quot;:false</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里特别提醒：</p>
+<ul>
+<li>CentOS 宿主机上需要安装git版本管理工具<code>yum install -y git</code></li>
+<li>CentOS 宿主机上默认还是需要通过git命令去远程克隆仓库，CentOS宿主机需要配置SSH-Key并在gitlab中进行配置，否则会报错：“无权限克隆仓库”</li>
+<li>需要使用CentOS 宿主机上的虚拟主机目录的拥有者去使用git命令，比如配置文件中使用<code>www</code>用户去克隆仓库</li>
+<li>注意在你的CentOS 宿主机上确认克隆仓库的版本，如果是测试环境建议使用<code>develop</code>分支，如果是生产环境建议使用<code>master</code>分支</li>
+</ul>
+<h4 id="3-安装NodeJS-进程管理工具PM2"><a href="#3-安装NodeJS-进程管理工具PM2" class="headerlink" title="3. 安装NodeJS 进程管理工具PM2"></a>3. 安装NodeJS 进程管理工具PM2</h4><p>使用NodeJS 的进程管理工具<a href="http://pm2.keymetrics.io/" target="_blank" rel="external">PM2</a>方便监控并管理NodeJS进程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">## 全局安装PM2</div><div class="line"></div><div class="line">$ npm install --global pm2</div><div class="line"></div><div class="line">## 查看正在运行的进程</div><div class="line"></div><div class="line">$ pm2 list</div><div class="line"></div><div class="line">## 监控当前运行的进程</div><div class="line"></div><div class="line">$ pm2 monit</div></pre></td></tr></table></figure>
+<h4 id="4-运行NodeJS-Gitlabhook"><a href="#4-运行NodeJS-Gitlabhook" class="headerlink" title="4.  运行NodeJS Gitlabhook"></a>4.  运行NodeJS Gitlabhook</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">## 执行gitlab-server.js</div><div class="line"></div><div class="line">$ pm2 start ~/.nvm/versions/node/v7.8.0/lib/node_modules/gitlabhook/gitlabhook-server.js</div><div class="line"></div><div class="line">## 查看gitlab-server端口是否开启</div><div class="line"></div><div class="line">$ netstat -tunlp | grep 3420</div><div class="line"></div><div class="line">## 在本地确认远程3420端口是否可访问</div><div class="line"></div><div class="line">$ telnet 138.68.24.82 3420</div><div class="line"></div><div class="line">Trying 138.68.24.82...</div><div class="line">Connected to 138.68.24.82.</div><div class="line">Escape character is &apos;^]&apos;.</div><div class="line"></div><div class="line">##如果看到上面的信息，表示Gitlab Server已经开始运行，如果没有，可以查看CentOS防火墙是否允许3420端口访问</div></pre></td></tr></table></figure>
+<h4 id="5-在Gitlab仓库中配置Webhooks"><a href="#5-在Gitlab仓库中配置Webhooks" class="headerlink" title="5. 在Gitlab仓库中配置Webhooks"></a>5. 在Gitlab仓库中配置Webhooks</h4><p>登录你的Gitlab项目管理后台，搜索<code>Webhooks</code>并添加Push events（不同版本的Gitlab配置Webhooks可能不一样）。</p>
+<p><img src="https://chenghuiyong.com/images/Webhooks/wehooks-1.png" alt="webhooks-1"></p>
+<p><img src="https://chenghuiyong.com/images/Webhooks/wehooks-2.png" alt="webhooks"></p>
+<h4 id="6-提交版本并测试"><a href="#6-提交版本并测试" class="headerlink" title="6. 提交版本并测试"></a>6. 提交版本并测试</h4><p>在你的本地开发仓库中，执行<code>git push</code>，进入CentOS服务器检查代码是否自动同步。</p>
+<p>使用NodeJS版本的Gitlab Webhooks解除了与Web服务器强依赖关系，同时服务器运行环境源码保持干净灵活，非常适合Docker的运行环境。另外，此项目不仅仅可以运行在Gitlab版本仓库中，同样也可以运行在Github、Coding等运行环境中。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​在我的&lt;a href=&quot;https://github.com/bravist&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github&lt;/a&gt;中有两个关于Gitlab代码自动部署的项目，一个是PHP版本的&lt;a href=&quot;https://github.
+    
+    </summary>
+    
+    
+      <category term="NodeJS" scheme="https://www.chenghuiyong.com/tags/NodeJS/"/>
+    
+      <category term="Webhooks" scheme="https://www.chenghuiyong.com/tags/Webhooks/"/>
+    
+      <category term="Gitlab" scheme="https://www.chenghuiyong.com/tags/Gitlab/"/>
+    
+      <category term="Git" scheme="https://www.chenghuiyong.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在macOS终端或者iTerm2中使用Shadowsocks畅游World Web</title>
+    <link href="https://www.chenghuiyong.com/2017-03-31/showdowsocks-for-iterm2.html"/>
+    <id>https://www.chenghuiyong.com/2017-03-31/showdowsocks-for-iterm2.html</id>
+    <published>2017-03-31T00:13:42.000Z</published>
+    <updated>2017-04-21T03:35:55.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>随着Web前端框架（Bootstrap、React、Vue.js）、包管理工具（Gulp自动化任务、Browsersync浏览器同步、Babel：JavaScript编译工具、Webpack：模块打包）、模块的盛行，前端开发也越来越偏工程化。<a href="https://www.npmjs.com/" target="_blank" rel="external">https://www.npmjs.com/</a> 号称已经是世界上最大的包管理仓库，在国内，要安装这些依赖包，经常会出现502连接超时情况。</p>
+<p>作为一个有志向的程序猿，更好地使用Google Search在解决技术问题、难题可能是必备专业技能，另外，在平时学习的宽度和深度方面，保持与国外的在线交流社区、视频学习平台、牛人的twitter、facebook互动也是非常重要。做到这些必须得“翻墙出去” - 自掏腰包搭建Shadowsocks服务器。<a href="https://php-rmcr7.rhcloud.com/shadowsocks-server/" target="_blank" rel="external">教你如何搭建自己的Shadowsocks服务器</a> 这篇文章详细描述了如何搭建自己的Shadowsocks服务器，另外推荐使用<a href="https://www.banwagong.me" target="_blank" rel="external">搬瓦工VPS</a> VPS，它专门针对国内网络进行了优化。</p>
+<p>成都市电信Ping的速度</p>
+<p><img src="https://www.chenghuiyong.com/images/macOS-iTerm2/ping.png" alt=""></p>
+<p>成功安装了Shadowsocks后，需要在macOS中安装另一个代理工具<a href="https://github.com/shadowsocks/ShadowsocksX-NG" target="_blank" rel="external">ShadowsocksX-NG</a></p>
+<p><img src="https://www.chenghuiyong.com/images/macOS-iTerm2/shadowsocks.png" alt=""></p>
+<p>正确配置后，你的浏览器应该就可以访问国外的网络了。</p>
+<p>接下来要配置的就是如何在macOS终端或者iTerm2使用Shadowsocks。</p>
+<h1 id="在ShadowsocksX-NG中，拷贝终端代理脚本"><a href="#在ShadowsocksX-NG中，拷贝终端代理脚本" class="headerlink" title="在ShadowsocksX-NG中，拷贝终端代理脚本"></a>在ShadowsocksX-NG中，拷贝终端代理脚本</h1><p><img src="https://www.chenghuiyong.com/images/macOS-iTerm2/Copy-to-local.png" alt=""></p>
+<p>复制代理脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export http_proxy=http://127.0.0.1:1087;</div><div class="line">export https_proxy=http://127.0.0.1:1087;</div></pre></td></tr></table></figure>
+<h1 id="添加终端代理脚本到-bash-profile文件"><a href="#添加终端代理脚本到-bash-profile文件" class="headerlink" title="添加终端代理脚本到.bash_profile文件"></a>添加终端代理脚本到<code>.bash_profile</code>文件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ sudo vi ~/.bash_profile</div><div class="line"></div><div class="line">...</div><div class="line">#在文件的末尾加上终端代理脚本</div><div class="line">export http_proxy=http://127.0.0.1:1087;</div><div class="line">export https_proxy=http://127.0.0.1:1087;</div><div class="line"></div><div class="line">$ source ~/.bash_profile</div></pre></td></tr></table></figure>
+<p><img src="https://www.chenghuiyong.com/images/macOS-iTerm2/bash_profile.png" alt=""></p>
+<h1 id="重启终端或iTerm2，使用curl-google-com-命令测试是否成功，使用http命令测试："><a href="#重启终端或iTerm2，使用curl-google-com-命令测试是否成功，使用http命令测试：" class="headerlink" title="重启终端或iTerm2，使用curl google.com 命令测试是否成功，使用http命令测试："></a>重启终端或iTerm2，使用<code>curl google.com</code> 命令测试是否成功，使用<code>http</code>命令测试：</h1><p><img src="https://www.chenghuiyong.com/images/macOS-iTerm2/google.png" alt=""></p>
+<p>命令行访问 <code>google.com</code></p>
+<p><img src="https://www.chenghuiyong.com/images/macOS-iTerm2/facebook.png" alt=""></p>
+<p>命令行访问 <code>facebook.com</code></p>
+<h1 id="测试yarn-install、npm-install-安装前端依赖"><a href="#测试yarn-install、npm-install-安装前端依赖" class="headerlink" title="测试yarn install、npm install 安装前端依赖"></a>测试<code>yarn install</code>、<code>npm install</code> 安装前端依赖</h1><p><img src="https://www.chenghuiyong.com/images/macOS-iTerm2/yarn.png" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;随着Web前端框架（Bootstrap、React、Vue.js）、包管理工具（Gulp自动化任务、Browsersync浏览器同步、Babel：JavaScript编译工具、Webpack：模块打包）、模块的盛行，前端开发也越来越偏工程化。&lt;a href=&quot;https:/
+    
+    </summary>
+    
+    
+      <category term="iTerm2" scheme="https://www.chenghuiyong.com/tags/iTerm2/"/>
+    
+      <category term="Shadowsocks" scheme="https://www.chenghuiyong.com/tags/Shadowsocks/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>安装Git服务&amp;使用Gitosis管理成员、项目并做项目授权</title>
+    <link href="https://www.chenghuiyong.com/2017-03-28/gitosis.html"/>
+    <id>https://www.chenghuiyong.com/2017-03-28/gitosis.html</id>
+    <published>2017-03-27T16:07:28.000Z</published>
+    <updated>2017-04-06T12:25:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>这是一篇实际的操作文档，里面的大部分图都是自己亲手截屏，力求达到真实并希望帮助到更多的遇到类似问题的困惑者。如果遇到问题，可以直接在文章最下面联系到我，也欢迎拍砖。</p>
+</blockquote>
+<h1 id="弄清楚关键词眼与概念"><a href="#弄清楚关键词眼与概念" class="headerlink" title="弄清楚关键词眼与概念"></a>弄清楚关键词眼与概念</h1><p><strong><em>裸仓库（bare repository）</em></strong></p>
+<blockquote>
+<p> 即一个没有当前工作目录的仓库。因为该仓库只是一个合作媒介，所以不需要从硬盘上取出最新版本的快照；仓库里存放的仅仅是 Git 的数据。简单地说，裸仓库就是你工作目录中 .git 子目录内的内容。</p>
+</blockquote>
+<p>补充一下：直接上图，简单明了。</p>
+<p><img src="https://chenghuiyong.com/images/gitosis/-裸仓库.png" alt="Alt text"></p>
+<p><strong><em>远程仓库</em></strong></p>
+<blockquote>
+<p>远程仓库通常只是一个裸仓库（bare repository）</p>
+</blockquote>
+<p><img src="https://chenghuiyong.com/images/gitosis/-本地目录与仓库-2.png" alt="Alt text"></p>
+<p><img src="https://chenghuiyong.com/images/gitosis/-暂存区原理.png" alt="Alt text"></p>
+<p>在 Git 内都只有三种状态：已提交（committed），已修改（modified）和已暂存（staged）。已提交表示该文件已经被安全地保存在本地仓库了；已修改表示修改了某个文件，但还没有提交保存；已暂存表示把已修改的文件放在下次提交时要保存的清单中。 结合实际的工作项目，来解释下以下概念。<br><strong><em>Git 工作目录</em></strong></p>
+<p>就是下图中的除了.git目录的其他的文件与目录。</p>
+<p><strong><em>暂存区域</em></strong></p>
+<p>就是实际操作时，使用git add 命令将新增（修改）的文件添加到一个控制区域的清单。</p>
+<p><strong>本地仓库</strong></p>
+<p>就是下图中的.git目录的其他的文件与目录。</p>
+<p><img src="https://chenghuiyong.com/images/gitosis/-本地目录与仓库.png" alt="图三"></p>
+<h1 id="Git安装"><a href="#Git安装" class="headerlink" title="Git安装"></a>Git安装</h1><p>以我的一台CentOS为例，做下实际安装过程。<br><img src="https://chenghuiyong.com/images/gitosis/-本地环境.png" alt="Alt text"></p>
+<p>安装git主要分为两种，一种是通过编译源代码来安装；另一种是使用为特定平台预编译好的安装包。我选择第二种咯。第一种安装方式<a href="http://git.oschina.net/progit/1-%E8%B5%B7%E6%AD%A5.html#1.4-%E5%AE%89%E8%A3%85-Git" target="_blank" rel="external">参考这里</a></p>
+<p><img src="https://chenghuiyong.com/images/gitosis/-特定平台预编译好的安装包.png" alt="Alt text"></p>
+<p><img src="https://chenghuiyong.com/images/gitosis/-安装结束.png" alt="Alt text"></p>
+<h1 id="Gitosis管理git用户与授权"><a href="#Gitosis管理git用户与授权" class="headerlink" title="Gitosis管理git用户与授权"></a>Gitosis管理git用户与授权</h1><p>如果你的项目是多人开发，建议就使用Gitosis进行人员添加与项目授权。安装Gitosis网上资料比比皆是，我自己也踩过很多坑。但是我建议是先看看网上的资料，最后仔细阅读<a href="https://github.com/res0nat0r/gitosis" target="_blank" rel="external">gitosis</a>在Github上面的安装流程，下面结合自己的搜索阅读与安装经历，一步一步记录我的安装过程。</p>
+<h3 id="1、Gitosis-的工作依赖于某些-Python-工具，所以首先要安装-Python-的-setuptools-包"><a href="#1、Gitosis-的工作依赖于某些-Python-工具，所以首先要安装-Python-的-setuptools-包" class="headerlink" title="1、Gitosis 的工作依赖于某些 Python 工具，所以首先要安装 Python 的 setuptools 包"></a>1、Gitosis 的工作依赖于某些 Python 工具，所以首先要安装 Python 的 setuptools 包</h3><p><img src="https://chenghuiyong.com/images/gitosis/-python-setuptools.png" alt="Alt text"></p>
+<h3 id="2、从-Gitosis-项目主页克隆并安装"><a href="#2、从-Gitosis-项目主页克隆并安装" class="headerlink" title="2、从 Gitosis 项目主页克隆并安装"></a>2、从 Gitosis 项目主页克隆并安装</h3><p>有可能你clone不成功，报socket连接失败<br><img src="https://chenghuiyong.com/images/gitosis/-1440148225122.png" alt="Alt text"></p>
+<p>那么，你可以去Github项目主页克隆</p>
+<p><img src="https://chenghuiyong.com/images/gitosis/-1440148325972.png" alt="Alt text"></p>
+<p>可是，克隆Github主页也报错，这时需要在你的机器上使用<code>ssh-keygen</code>命令生成公钥与私钥，然后发布到Github上去。</p>
+<p><img src="https://chenghuiyong.com/images/gitosis/-1440148460982.png" alt="Alt text"><br>将生成的公钥发布到Github（你得有个Github账号呀）上。<br><img src="https://chenghuiyong.com/images/gitosis/-1440148698397.png" alt="Alt text"><br>添加成功后的效果<br><img src="https://chenghuiyong.com/images/gitosis/-1440148904479.png" alt="Alt text"></p>
+<p>再次克隆没有问题<br><img src="https://chenghuiyong.com/images/gitosis/-1440148967209.png" alt="Alt text"></p>
+<p>安装几个供 Gitosis 使用的工具<br><img src="https://chenghuiyong.com/images/gitosis/-1440149048737.png" alt="Alt text"></p>
+<h3 id="3、初始化Gitosis"><a href="#3、初始化Gitosis" class="headerlink" title="3、初始化Gitosis"></a>3、初始化Gitosis</h3><p>创建用于管理我们的Gitosis项目的用户（<a href="https://github.com/res0nat0r/gitosis" target="_blank" rel="external">Github主页</a>有关于这块的介绍，不同的Linux版本创建用户是不一样的）</p>
+<p>切换到ROOT用户，然后添加git用户<br><img src="https://chenghuiyong.com/images/gitosis/-1440149716711.png" alt="Alt text"></p>
+<p>初始化Gitosis。这里需要注意，管理我们的Gitosis项目需要有一个管理员，而这个管理员是需要把自己的SSH公钥发布到这台服务器上的。比如，我把自己的Mac用户的公钥上传到服务器。</p>
+<p><img src="https://chenghuiyong.com/images/gitosis/-1440150675005.png" alt="Alt text"></p>
+<p>初始化Gitosis。注意Gitosis项目主页描述的和我们实际执行的有些区别。</p>
+<p><img src="https://chenghuiyong.com/images/gitosis/-1440150789113.png" alt="Alt text"></p>
+<p>初始化成功后，就可以安装管理我们的项目咯。比如，我用Mac用户先克隆Gitosis项目</p>
+<p><img src="https://chenghuiyong.com/images/gitosis/-1440151155774.png" alt="Alt text"></p>
+<p>这就是Gitosis的项目管理员：chenghuiyong<br><img src="https://chenghuiyong.com/images/gitosis/-1440151226269.png" alt="Alt text"></p>
+<h3 id="4、配置Gitosis"><a href="#4、配置Gitosis" class="headerlink" title="4、配置Gitosis"></a>4、配置Gitosis</h3><p>我们继续增加一个项目，成员还是我自己，允许读写。</p>
+<p><img src="https://chenghuiyong.com/images/gitosis/-1440154341290.png" alt="Alt text"></p>
+<p>推送到远程仓库中。</p>
+<p><img src="https://chenghuiyong.com/images/gitosis/-1440154441367.png" alt="Alt text"></p>
+<p>配置文件中，我们已经新增了一个项目：api.chehubao.com，现在需要做是在本地创建一个api.chehubao.com目录，初始化该项目，然后与远程仓库关联，在推送到远程（这里推送时要注意，本地仓库里面一定要有内容才能推送成功 ，而<a href="http://git.oschina.net/progit/4-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git.html#4.7-Gitosis" target="_blank" rel="external">Pro Git</a> 这本书里面是错误的）</p>
+<p><img src="https://chenghuiyong.com/images/gitosis/-1440154725633.png" alt="Alt text"></p>
+<p>推送到远程仓库，如果远程没有它默认会自动创建该仓库。<br><img src="https://chenghuiyong.com/images/gitosis/-1440154773210.png" alt="Alt text"></p>
+<p>登陆到服务器，查看是否创建了该项目</p>
+<p><img src="https://chenghuiyong.com/images/gitosis/-1440154839318.png" alt="Alt text"></p>
+<p>至此，Git服务器搭建与项目、权限、用户管理已经结束。在写这篇文章前，我自己是查了很多资料，实践了多次，也遇到了非常多的困难。网上的资料总是不完整的，最后对比了不同的资料与官方的文档，总结了这篇博文。</p>
+<p>我们现在公司的项目也全部基于Git，使用Gitosis授权。同时，我们也不断在积累Git-Flow的经验心得，接下来，我会根据实际项目的操作经验，分享一篇关于如何高效的在团队中使用Git-Flow流程进行项目开发的博文，如果你喜欢请在我的博客中关注我：<a href="www.chenghuiyong.com">www.chenghuiyong.com</a></p>
+<h3 id="2015-8-25更新"><a href="#2015-8-25更新" class="headerlink" title="2015-8-25更新"></a>2015-8-25更新</h3><p>如果需要重新配置Gitosis的话，过程中，可能会报错：</p>
+<p><img src="https://chenghuiyong.com/images/gitosis/-1440493158186.png" alt="Alt text"></p>
+<p>这个原因，是因为你第一次配置Gitosis的用户的公钥（id_rsa.pub）内容错误导致。</p>
+<p>只要按照我上面的操作配置后，可以正常克隆，无需密码</p>
+<p><img src="https://chenghuiyong.com/images/gitosis/-1440493279065.png" alt="Alt text"></p>
+<h1 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a>参考资源</h1><ul>
+<li><a href="http://git.oschina.net/progit/4-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git.html" target="_blank" rel="external">Pro Git（中文版）</a></li>
+<li><a href="https://github.com/res0nat0r/gitosis" target="_blank" rel="external">https://github.com/res0nat0r/gitosis</a></li>
+<li><a href="https://stackoverflow.com/questions/4882545/gitosis-asking-for-password" target="_blank" rel="external">gitosis asking for password</a></li>
+<li><a href="https://stackoverflow.com/questions/25115959/gitosis-init-error-traceback-most-recent-call-last" target="_blank" rel="external">gitosis-init error | Traceback (most recent call last)</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;这是一篇实际的操作文档，里面的大部分图都是自己亲手截屏，力求达到真实并希望帮助到更多的遇到类似问题的困惑者。如果遇到问题，可以直接在文章最下面联系到我，也欢迎拍砖。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;弄清楚关键词眼与概念&quot;&gt;&lt;a 
+    
+    </summary>
+    
+    
+      <category term="Git" scheme="https://www.chenghuiyong.com/tags/Git/"/>
+    
+      <category term="Gitosis" scheme="https://www.chenghuiyong.com/tags/Gitosis/"/>
+    
+  </entry>
+  
+</feed>

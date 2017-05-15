@@ -21,7 +21,7 @@
 
 
 
-  <link rel="alternate" href="/default" title="Bravist">
+  <link rel="alternate" href="/atom.xml" title="Bravist">
 
 
 
@@ -63,6 +63,16 @@
 
 
   
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-96539996-1', 'auto');
+        ga('send', 'pageview');
+  </script>
 
 
 
@@ -165,6 +175,31 @@
       </div>
     </div>
     
+
+<script type="text/javascript">
+  var disqus_shortname = 'bravist';
+  var disqus_identifier = 'tags/macOS/index.html';
+
+  var disqus_title = "";
+
+
+  var disqus = {
+    load : function disqus(){
+        if(typeof DISQUS !== 'object') {
+          (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+          }());
+          $('#load-disqus').remove(); ///加载后移除按钮
+        }
+    }
+  }
+
+  
+
+</script>
 
 
     
