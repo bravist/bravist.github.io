@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="macOS 安装 iTerm2 + Fish Shell"/>
+
+
+
+
+  <meta name="keywords" content="macOS,iTerm2,Fish Shell," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Bravist">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="https://www.chenghuiyong.com/2017-05-15/fish-shell.html"/>
+
+
+<meta name="description" content="Unix shell，一种壳层与命令行界面，是Unix操作系统下传统的用户和计算机的交互界面。第一个用户直接输入命令)来执行各种各样的任务。
+普通意义上的shell就是可以接受用户输入命令的程序。它之所以被称作shell是因为它隐藏了操作系统低层的细节。同样的Unix下的图形用户界面GNOME和KDE，有时也被叫做“虚拟shell”或“图形shell”。
+ — 来自维基百科
+
+Fish Shel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="macOS 安装 iTerm2 + Fish Shell">
+<meta property="og:url" content="https://www.chenghuiyong.com/2017-05-15/fish-shell.html">
+<meta property="og:site_name" content="Bravist">
+<meta property="og:description" content="Unix shell，一种壳层与命令行界面，是Unix操作系统下传统的用户和计算机的交互界面。第一个用户直接输入命令)来执行各种各样的任务。
+普通意义上的shell就是可以接受用户输入命令的程序。它之所以被称作shell是因为它隐藏了操作系统低层的细节。同样的Unix下的图形用户界面GNOME和KDE，有时也被叫做“虚拟shell”或“图形shell”。
+ — 来自维基百科
+
+Fish Shel">
+<meta property="og:updated_time" content="2017-05-15T08:19:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="macOS 安装 iTerm2 + Fish Shell">
+<meta name="twitter:description" content="Unix shell，一种壳层与命令行界面，是Unix操作系统下传统的用户和计算机的交互界面。第一个用户直接输入命令)来执行各种各样的任务。
+普通意义上的shell就是可以接受用户输入命令的程序。它之所以被称作shell是因为它隐藏了操作系统低层的细节。同样的Unix下的图形用户界面GNOME和KDE，有时也被叫做“虚拟shell”或“图形shell”。
+ — 来自维基百科
+
+Fish Shel">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> macOS 安装 iTerm2 + Fish Shell - Bravist </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">Bravist</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          macOS 安装 iTerm2 + Fish Shell
+        
+      </h1>
+
+      <time class="post-time">
+          5月 15 2017
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <blockquote>
+<p><strong>Unix shell</strong>，一种<a href="https://zh.wikipedia.org/wiki/%E6%AE%BC%E5%B1%A4" target="_blank" rel="external">壳层</a>与<a href="https://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2" target="_blank" rel="external">命令行界面</a>，是<a href="https://zh.wikipedia.org/wiki/Unix" target="_blank" rel="external">Unix</a><a href="https://zh.wikipedia.org/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F" target="_blank" rel="external">操作系统</a>下传统的用户和计算机的交互界面。第一个用户直接输入<a href="https://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4_(%E8%AE%A1%E7%AE%97%E6%9C%BA" target="_blank" rel="external">命令</a>)来执行各种各样的任务。</p>
+<p>普通意义上的shell就是可以接受用户输入命令的程序。它之所以被称作shell是因为它隐藏了操作系统低层的细节。同样的Unix下的图形用户界面<a href="https://zh.wikipedia.org/wiki/GNOME" target="_blank" rel="external">GNOME</a>和<a href="https://zh.wikipedia.org/wiki/KDE" target="_blank" rel="external">KDE</a>，有时也被叫做“虚拟shell”或“图形shell”。</p>
+<p> — 来自维基百科</p>
+</blockquote>
+<p>Fish Shell是*unix平台中所有Shell中的一种Shell，相比系统默认Shell <code>bash</code>，提供更多漂亮的、实用的、强大的命令行交互。 </p>
+<blockquote>
+<p><strong>fish</strong>是一个<a href="https://zh.wikipedia.org/wiki/Unix_shell" target="_blank" rel="external">Unix shell</a>。 fish这个名字是<em>friendly interactive shell</em>的缩写。 fish专注于交互应用、易用性和友好的用户体验。fish的设计目的是通过容易发现，记住和使用的方式为用户提供一套丰富、强大的功能 。fish于2005年在<a href="https://zh.wikipedia.org/wiki/GNU%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E8%AE%B8%E5%8F%AF%E8%AF%81" target="_blank" rel="external">GNU通用公共许可证</a>条款下正式发布。fish 是一款<a href="https://zh.wikipedia.org/wiki/%E8%87%AA%E7%94%B1%E8%BD%AF%E4%BB%B6" target="_blank" rel="external">自由软件</a>。</p>
+</blockquote>
+<p>主要特性</p>
+<ul>
+<li>优秀的tab补全功能</li>
+<li>具有广泛错误检查的<a href="https://zh.wikipedia.org/wiki/%E8%AA%9E%E6%B3%95%E9%AB%98%E4%BA%AE%E5%BA%A6%E9%A1%AF%E7%A4%BA" target="_blank" rel="external">语法高亮度显示</a></li>
+<li>支持<a href="https://zh.wikipedia.org/wiki/X_Window%E7%B3%BB%E7%B5%B1" target="_blank" rel="external">X窗口系统</a>和<a href="http://en.wikipedia.org/wiki/Clipboard_(software" target="_blank" rel="external">剪贴板</a>)</li>
+<li>基于<a href="http://en.wikipedia.org/wiki/Terminfo" target="_blank" rel="external">terminfo</a>的智能的<a href="https://zh.wikipedia.org/wiki/%E7%B5%82%E7%AB%AF" target="_blank" rel="external">终端</a>处理</li>
+<li>可以查询的<a href="http://en.wikipedia.org/wiki/Command_history" target="_blank" rel="external">命令历史</a></li>
+</ul>
+<p>在macOS 中推荐使用homebrew安装 fish shell，因为你能够非常方便的卸载fish shell</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">➜  logs git:(develop) brew install fish</div><div class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/fish-2.5.0.sierra.bottle.tar.gz</div><div class="line">######################################################################## 100.0%</div><div class="line">==&gt; Pouring fish-2.5.0.sierra.bottle.tar.gz</div><div class="line">==&gt; Using the sandbox</div><div class="line">==&gt; Caveats</div><div class="line">You will need to add:</div><div class="line">  /usr/local/bin/fish</div><div class="line">to /etc/shells.</div><div class="line"></div><div class="line">Then run:</div><div class="line">  chsh -s /usr/local/bin/fish</div><div class="line">to make fish your default shell.</div><div class="line">==&gt; Summary</div><div class="line">🍺  /usr/local/Cellar/fish/2.5.0: 864 files, 6.4MB</div></pre></td></tr></table></figure>
+<p><code>brew install fish</code> 刚在你的<code>/etc/shells</code>文件中添加了<code>/usr/local/bin/fish</code>文本行。如果你想让fish 成为系统默认的shell，使用<code>chsh -s /usr/local/bin/fish</code> 切换，如果你正运行在其他的shell中，可以使用<code>fish</code>快速切换到fish shell。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">➜  logs git:(develop) fish</div><div class="line">Welcome to fish, the friendly interactive shell</div><div class="line">Type help for instructions on how to use fish</div><div class="line"> ~/A/P/b/s/logs   develop  </div></pre></td></tr></table></figure>
+<p>你可以先查看macOS中正在使用的shell</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">➜  ~ echo $SHELL</div><div class="line">/bin/zsh</div><div class="line">➜  ~</div></pre></td></tr></table></figure>
+<p>同时查询macOS 系统中已经安装的所有shells。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">➜  ~ cat /etc/shells</div><div class="line"># List of acceptable shells for chpass(1).</div><div class="line"># Ftpd will not allow users to connect who are not using</div><div class="line"># one of these shells.</div><div class="line"></div><div class="line">/bin/bash</div><div class="line">/bin/csh</div><div class="line">/bin/ksh</div><div class="line">/bin/sh</div><div class="line">/bin/tcsh</div><div class="line">/usr/local/bin/fish</div><div class="line">/bin/zsh</div><div class="line">➜  ~</div></pre></td></tr></table></figure>
+<p>最后，让fish shell 成为默认的shell。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">➜  ~ cat /etc/shells</div><div class="line"># List of acceptable shells for chpass(1).</div><div class="line"># Ftpd will not allow users to connect who are not using</div><div class="line"># one of these shells.</div><div class="line"></div><div class="line">/bin/bash</div><div class="line">/bin/csh</div><div class="line">/bin/ksh</div><div class="line">/bin/sh</div><div class="line">/bin/tcsh</div><div class="line">/usr/local/bin/fish</div><div class="line">/bin/zsh</div><div class="line">➜  ~ chsh -s /usr/local/bin/fish</div><div class="line">Changing shell for chenghuiyong.</div><div class="line">Password for chenghuiyong:</div><div class="line">➜  ~</div></pre></td></tr></table></figure>
+<p>安装fish shell仅仅能体验部分比<code>bash</code>更好的体验，推荐在安装fish shell 框架 - oh-my-fish，他提供了更加丰富的插件管理、主题内容让你的shell看着更加“牛逼”。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">➜  ~ curl -L https://get.oh-my.fish | fish</div><div class="line">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</div><div class="line">                                 Dload  Upload   Total   Spent    Left  Speed</div><div class="line">100   194  100   194    0     0    114      0  0:00:01  0:00:01 --:--:--   114</div><div class="line">100 16533  100 16533    0     0   5244      0  0:00:03  0:00:03 --:--:-- 14696</div><div class="line">Existing installation detected at /Users/chenghuiyong/.local/share/omf</div><div class="line">Would you like to remove the existing installation? (y/N): y</div><div class="line">This will uninstall Oh My Fish and all plugins and themes from</div><div class="line">/Users/chenghuiyong/.local/share/omf.</div><div class="line">Are you sure you want to continue? (y/N): y</div><div class="line">Uninstalling from /Users/chenghuiyong/.local/share/omf...</div><div class="line">Uninstall complete</div><div class="line">Installing Oh My Fish to /Users/chenghuiyong/.local/share/omf...</div><div class="line">Using release channel &quot;stable&quot;.</div><div class="line">Cloning master from https://github.com/oh-my-fish/oh-my-fish.git...</div><div class="line">Writing bootstrap to /Users/chenghuiyong/.config/fish/conf.d/omf.fish...</div><div class="line">Setting up Oh My Fish configuration...</div><div class="line">Updating https://github.com/oh-my-fish/packages-main master... Done!</div><div class="line">Installing package default</div><div class="line">✔ default successfully installed.</div><div class="line">Installation successful!</div></pre></td></tr></table></figure>
+<p>默认的主题显示如下，这里推荐使用主题 - agnoster</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">⋊&gt; ~/A/P/bravist.com on develop ◦ omf install agnoster                                                                                                13:22:35</div><div class="line">Updating https://github.com/oh-my-fish/packages-main master... Done!</div><div class="line">Installing package agnoster</div><div class="line">✔ agnoster successfully installed.</div></pre></td></tr></table></figure>
+<p>结合字体<a href="https://github.com/tonsky/FiraCode" target="_blank" rel="external">firacode</a>让你的iTerm2 看起来漂亮极了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">  ~  brew tap caskroom/fonts</div><div class="line">Updating Homebrew...</div><div class="line"></div><div class="line">  ~  brew cask install font-fira-code</div><div class="line">Warning: A Cask for font-fira-code is already installed.</div><div class="line"></div><div class="line">To re-install font-fira-code, run:</div><div class="line">  brew cask reinstall font-fira-code</div><div class="line"> ~  brew cask reinstall font-fira-code</div></pre></td></tr></table></figure>
+<p>另外，推荐一款iTerm2 主题 - <a href="https://draculatheme.com/iterm/" target="_blank" rel="external">Dracula</a></p>
+<p>相关资料</p>
+<ul>
+<li><a href="https://github.com/fish-shell/fish-shell" target="_blank" rel="external">面向用户友好的Shell - fish shell</a></li>
+<li><a href="https://github.com/fisherman/fisher+ man" target="_blank" rel="external">fish shell插件管理工具 - fisherman</a></li>
+<li><a href="https://github.com/oh-my-fish/oh-my-fish" target="_blank" rel="external">fish shell 框架 - oh-my-fish</a></li>
+<li><a href="https://jigsawye.com/2016/06/20/install-fish-shell-on-os-x/" target="_blank" rel="external">在 OSX 使用 Fish shell 取代 bash/zsh</a></li>
+</ul>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/macOS/">macOS</a>
+          
+            <a href="/tags/iTerm2/">iTerm2</a>
+          
+            <a href="/tags/Fish-Shell/">Fish Shell</a>
+          
+        </div>
+
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2017-04-21/centos-lnmp.html">
+        <span class="next-text nav-default">如何安装并配置LNMP环境在CentOS 7中</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+    2017
+    <span class="footer-author">Bravist</span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/gas.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
