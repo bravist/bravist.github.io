@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="Foreach 函数在PHP 7 中的变化"/>
+
+
+
+
+  <meta name="keywords" content="PHP 7,Foreach," />
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Bravist">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="https://www.chenghuiyong.com/2017-06-06/foreach-in-php7.html"/>
+
+
+<meta name="description" content="Foreach 函数在PHP 7中的变化PHP 7发布至今已有两年多的时间（7.0.0alpha1），相信大部分PHP开发者已经或者正在使用PHP7作为主要开发版本。不过，建议开发者在选择PHP7版本前，仔细认真浏览一下升级日志。作者在实际项目中就遇到了一个foreach函数在PHP 5 与PHP 7不同版本下遇到的难以发现之坑。
+
+PHP 7 UPGRADING 
+ PHP 7升级备注
+
+在PH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Foreach 函数在PHP 7 中的变化">
+<meta property="og:url" content="https://www.chenghuiyong.com/2017-06-06/foreach-in-php7.html">
+<meta property="og:site_name" content="Bravist">
+<meta property="og:description" content="Foreach 函数在PHP 7中的变化PHP 7发布至今已有两年多的时间（7.0.0alpha1），相信大部分PHP开发者已经或者正在使用PHP7作为主要开发版本。不过，建议开发者在选择PHP7版本前，仔细认真浏览一下升级日志。作者在实际项目中就遇到了一个foreach函数在PHP 5 与PHP 7不同版本下遇到的难以发现之坑。
+
+PHP 7 UPGRADING 
+ PHP 7升级备注
+
+在PH">
+<meta property="og:updated_time" content="2017-06-06T12:49:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Foreach 函数在PHP 7 中的变化">
+<meta name="twitter:description" content="Foreach 函数在PHP 7中的变化PHP 7发布至今已有两年多的时间（7.0.0alpha1），相信大部分PHP开发者已经或者正在使用PHP7作为主要开发版本。不过，建议开发者在选择PHP7版本前，仔细认真浏览一下升级日志。作者在实际项目中就遇到了一个foreach函数在PHP 5 与PHP 7不同版本下遇到的难以发现之坑。
+
+PHP 7 UPGRADING 
+ PHP 7升级备注
+
+在PH">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<link rel="stylesheet" type="text/css" href="/css/typo.css" />
+
+
+
+
+<script>
+  var CONFIG = {
+    search: true,
+    searchPath: "/search.xml",
+    fancybox: true,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-96539996-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+
+    <title> Foreach 函数在PHP 7 中的变化 · Bravist </title>
+  </head>
+
+  <body class="typo"><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Bravist</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Bravist</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Foreach 函数在PHP 7 中的变化
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017年6月6日
+        </span>
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Foreach-函数在PHP-7中的变化"><span class="toc-text">Foreach 函数在PHP 7中的变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <h2 id="Foreach-函数在PHP-7中的变化"><a href="#Foreach-函数在PHP-7中的变化" class="headerlink" title="Foreach 函数在PHP 7中的变化"></a>Foreach 函数在PHP 7中的变化</h2><p>PHP 7发布至今已有两年多的时间（<a href="https://github.com/php/php-src/releases/tag/php-7.0.0alpha1" target="_blank" rel="external">7.0.0alpha1</a>），相信大部分PHP开发者已经或者正在使用PHP7作为主要开发版本。不过，建议开发者在选择PHP7版本前，仔细认真浏览一下升级日志。作者在实际项目中就遇到了一个<code>foreach</code>函数在PHP 5 与PHP 7不同版本下遇到的难以发现之坑。</p>
+<blockquote>
+<p><a href="https://github.com/php/php-src/blob/php-7.0.0beta1/UPGRADING" target="_blank" rel="external">PHP 7 UPGRADING </a></p>
+<p> <a href="https://linux.cn/article-5840-1.html" target="_blank" rel="external">PHP 7升级备注</a></p>
+</blockquote>
+<p>在PHP 5 中执行下面代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$stack = <span class="string">''</span>;</div><div class="line"></div><div class="line">$collections = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>];</div><div class="line"></div><div class="line"><span class="keyword">foreach</span>($collections <span class="keyword">as</span> $key =&gt; $collection) &#123;</div><div class="line">  $stack[$key] = $collection . <span class="string">'_'</span> . $key;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var_dump($stack);</div></pre></td></tr></table></figure>
+<p>执行完成后，正常打印结果：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&gt;&gt;&gt; var_dump($stack);</div><div class="line"><span class="keyword">array</span>(<span class="number">7</span>) &#123;</div><div class="line">  [<span class="number">0</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"1_0"</span></div><div class="line">  [<span class="number">1</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"2_1"</span></div><div class="line">  [<span class="number">2</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"3_2"</span></div><div class="line">  [<span class="number">3</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"4_3"</span></div><div class="line">  [<span class="number">4</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"5_4"</span></div><div class="line">  [<span class="number">5</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"6_5"</span></div><div class="line">  [<span class="number">6</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"7_6"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接着，我们将相同代码放在PHP 7 中运行，结果显示如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; var_dump($stack);</div><div class="line">string(<span class="number">7</span>) <span class="string">"1234567"</span></div></pre></td></tr></table></figure>
+<p>非常奇怪，为什么打印结果会是一个字符串?</p>
+<p>我们继续修改一下源码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$stack = [];</div><div class="line"></div><div class="line">$collections = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>];</div><div class="line"></div><div class="line"><span class="keyword">foreach</span>($collections <span class="keyword">as</span> $key=&gt; $collection) &#123;</div><div class="line">  $stack[$key] = $collection . <span class="string">'_'</span> . $key;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var_dump($stack);</div></pre></td></tr></table></figure>
+<p>然后在PHP7与PHP5中分别执行，最后都是得到如下结果：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; var_dump($stack);</div><div class="line"><span class="keyword">array</span>(<span class="number">7</span>) &#123;</div><div class="line">  [<span class="number">0</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"1_0"</span></div><div class="line">  [<span class="number">1</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"2_1"</span></div><div class="line">  [<span class="number">2</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"3_2"</span></div><div class="line">  [<span class="number">3</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"4_3"</span></div><div class="line">  [<span class="number">4</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"5_4"</span></div><div class="line">  [<span class="number">5</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"6_5"</span></div><div class="line">  [<span class="number">6</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"7_6"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>继续在PHP5 与 PHP 7中执行如下代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$stack = <span class="string">''</span>;</div><div class="line"></div><div class="line">$collections = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>];</div><div class="line"></div><div class="line"><span class="keyword">foreach</span>($collections <span class="keyword">as</span> $key =&gt; $collection) &#123;</div><div class="line">  var_dump($collection . <span class="string">'_'</span> . $key);</div><div class="line">  var_dump($stack);</div><div class="line">  $stack[$key] = $collection . <span class="string">'_'</span> . $key;</div><div class="line">  var_dump($stack);</div><div class="line">  <span class="keyword">exit</span>();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>PHP 7 中打印结果：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">string(<span class="number">3</span>) <span class="string">"1_0"</span></div><div class="line">string(<span class="number">0</span>) <span class="string">""</span></div><div class="line">string(<span class="number">1</span>) <span class="string">"1"</span></div></pre></td></tr></table></figure>
+<p>而PHP 5中打印结果：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">string(<span class="number">3</span>) <span class="string">"1_0"</span></div><div class="line">string(<span class="number">0</span>) <span class="string">""</span></div><div class="line"><span class="keyword">array</span>(<span class="number">1</span>) &#123;</div><div class="line">  [<span class="number">0</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"1_0"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果将变量<code>$stack = [];</code>赋值未数组，在PHP 5 与PHP 7中都是得到如上结果。</p>
+<p><code>foreach</code>函数在PHP 7中的变化</p>
+<ul>
+<li><p>foreach() 迭代不再影响数组内部指针，数组指针可通过 current()/next() 等系列的函数访问。例如：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; $array = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</div><div class="line">&gt;&gt;&gt; <span class="keyword">foreach</span> ($array <span class="keyword">as</span> &amp;$val) &#123;</div><div class="line">...     var_dump(current($array));</div><div class="line">... &#125;</div><div class="line">int(<span class="number">0</span>)</div><div class="line">int(<span class="number">0</span>)</div><div class="line">int(<span class="number">0</span>)</div></pre></td></tr></table></figure>
+<p>现在将指向值 int(0) 三次。以前的输出是 int(1)、int(2) 和 bool(false)。</p>
+</li>
+<li><p>在对数组按值迭代时，foreach 总是在对数组副本进行操作，在迭代中任何对数组的操作都不会影响到迭代行为。例如：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$array = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</div><div class="line">$ref =&amp; $array; <span class="comment">// Necessary to trigger the old behavior</span></div><div class="line"><span class="keyword">foreach</span> ($array <span class="keyword">as</span> $val) &#123;</div><div class="line">  var_dump($val);</div><div class="line">  <span class="keyword">unset</span>($array[<span class="number">1</span>]);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int(<span class="number">0</span>)</div><div class="line">int(<span class="number">1</span>)</div><div class="line">int(<span class="number">2</span>)</div></pre></td></tr></table></figure>
+<p>现在将打印出全部三个元素 (0 1 2)，而以前第二个元素 1 会跳过 (0 2)。</p>
+</li>
+<li><p>在对数组按引用迭代时，对数组的修改将继续会影响到迭代。不过，现在 PHP 在使用数字作为键时可以更好的维护数组内的位置。例如，在按引用迭代过程中添加数组元素：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$array = [<span class="number">0</span>];</div><div class="line"><span class="keyword">foreach</span> ($array <span class="keyword">as</span> &amp;$val) &#123;</div><div class="line">    var_dump($val);</div><div class="line">    $array[<span class="number">1</span>] = <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int(<span class="number">0</span>)</div><div class="line">int(<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<p>现在迭代会正确的添加了元素。如上代码输出是 “int(0) int(1)”，而以前只是 “int(0)”。</p>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://linux.cn/article-5840-1.html#4_4658" target="_blank" rel="external">https://linux.cn/article-5840-1.html#4_4658</a></li>
+<li><a href="http://codeday.me/bug/20170304/416.html" target="_blank" rel="external">PHP’foreach’实际上如何工作？</a></li>
+<li><a href="https://wiki.php.net/rfc/php7_foreach" target="_blank" rel="external">https://wiki.php.net/rfc/php7_foreach</a></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+  <div class="post-reward">
+    <input type="checkbox" name="reward" id="reward" hidden />
+    <label class="reward-button" for="reward">赞赏支持</label>
+    <div class="qr-code">
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/reward/wechat.png" title="wechat">
+        </label>
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/reward/alipay.png" title="alipay">
+        </label>
+      
+    </div>
+  </div>
+
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/PHP-7/">PHP 7</a>
+            
+              <a href="/tags/Foreach/">Foreach</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2017-05-15/fish-shell.html">
+        <span class="next-text nav-default">macOS 安装 iTerm2 + Fish Shell</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:chenghuiyong1987@gmail.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="https://twitter.com/bravecheng" class="iconfont icon-twitter" title="twitter"></a>
+        
+      
+    
+      
+        
+          <a href="https://www.facebook.com/brave.cheng.7" class="iconfont icon-facebook" title="facebook"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="https://plus.google.com/u/0/108959885208595290221" class="iconfont icon-google" title="google"></a>
+        
+      
+    
+      
+        
+          <a href="https://github.com/bravist" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+        
+          <a href="http://weibo.com/1197013323" class="iconfont icon-weibo" title="weibo"></a>
+        
+      
+    
+      
+        
+          <a href="https://www.zhihu.com/people/cheng-hui-yong/" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+      
+    
+      
+        
+          <a href="https://getpocket.com/@braveCheng" class="iconfont icon-pocket" title="pocket"></a>
+        
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Bravist</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://www.chenghuiyong.com/2017-06-06/foreach-in-php7.html';
+        this.page.identifier = '2017-06-06/foreach-in-php7.html';
+        this.page.title = 'Foreach 函数在PHP 7 中的变化';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//bravist.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  <script type="text/html" id="search-result">
+    <article class="post">
+      <header class="post-header">
+        <h1 class="post-title">
+          <a href="$url$" class="post-link">
+            $title$
+          </a>
+        </h1>
+      </header>
+      <div class="post-content">
+        $content$
+        <div class="read-more">
+          <a href="$url$" class="read-more-link">
+            阅读更多
+          </a>
+        </div>
+      </div>
+    </article>
+  </script>
+  <script type="text/html" id="no-search-result">
+    <div class="no-result">
+      <h2>No result found!</h2>
+    </div>
+  </script>
+  <script type="text/javascript" src="/js/src/search.js?v=2.4.x"></script>
+
+  </body>
+</html>

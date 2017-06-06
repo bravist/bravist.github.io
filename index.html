@@ -190,6 +190,86 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2017-06-06/foreach-in-php7.html">Foreach 函数在PHP 7 中的变化</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017年6月6日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h2 id="Foreach-函数在PHP-7中的变化"><a href="#Foreach-函数在PHP-7中的变化" class="headerlink" title="Foreach 函数在PHP 7中的变化"></a>Foreach 函数在PHP 7中的变化</h2><p>PHP 7发布至今已有两年多的时间（<a href="https://github.com/php/php-src/releases/tag/php-7.0.0alpha1" target="_blank" rel="external">7.0.0alpha1</a>），相信大部分PHP开发者已经或者正在使用PHP7作为主要开发版本。不过，建议开发者在选择PHP7版本前，仔细认真浏览一下升级日志。作者在实际项目中就遇到了一个<code>foreach</code>函数在PHP 5 与PHP 7不同版本下遇到的难以发现之坑。</p>
+<blockquote>
+<p><a href="https://github.com/php/php-src/blob/php-7.0.0beta1/UPGRADING" target="_blank" rel="external">PHP 7 UPGRADING </a></p>
+<p> <a href="https://linux.cn/article-5840-1.html" target="_blank" rel="external">PHP 7升级备注</a></p>
+</blockquote>
+<p>在PHP 5 中执行下面代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$stack = <span class="string">''</span>;</div><div class="line"></div><div class="line">$collections = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>];</div><div class="line"></div><div class="line"><span class="keyword">foreach</span>($collections <span class="keyword">as</span> $key =&gt; $collection) &#123;</div><div class="line">  $stack[$key] = $collection . <span class="string">'_'</span> . $key;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var_dump($stack);</div></pre></td></tr></table></figure>
+<p>执行完成后，正常打印结果：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&gt;&gt;&gt; var_dump($stack);</div><div class="line"><span class="keyword">array</span>(<span class="number">7</span>) &#123;</div><div class="line">  [<span class="number">0</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"1_0"</span></div><div class="line">  [<span class="number">1</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"2_1"</span></div><div class="line">  [<span class="number">2</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"3_2"</span></div><div class="line">  [<span class="number">3</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"4_3"</span></div><div class="line">  [<span class="number">4</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"5_4"</span></div><div class="line">  [<span class="number">5</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"6_5"</span></div><div class="line">  [<span class="number">6</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"7_6"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接着，我们将相同代码放在PHP 7 中运行，结果显示如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; var_dump($stack);</div><div class="line">string(<span class="number">7</span>) <span class="string">"1234567"</span></div></pre></td></tr></table></figure>
+<p>非常奇怪，为什么打印结果会是一个字符串?</p>
+<p>我们继续修改一下源码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$stack = [];</div><div class="line"></div><div class="line">$collections = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>];</div><div class="line"></div><div class="line"><span class="keyword">foreach</span>($collections <span class="keyword">as</span> $key=&gt; $collection) &#123;</div><div class="line">  $stack[$key] = $collection . <span class="string">'_'</span> . $key;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var_dump($stack);</div></pre></td></tr></table></figure>
+<p>然后在PHP7与PHP5中分别执行，最后都是得到如下结果：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; var_dump($stack);</div><div class="line"><span class="keyword">array</span>(<span class="number">7</span>) &#123;</div><div class="line">  [<span class="number">0</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"1_0"</span></div><div class="line">  [<span class="number">1</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"2_1"</span></div><div class="line">  [<span class="number">2</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"3_2"</span></div><div class="line">  [<span class="number">3</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"4_3"</span></div><div class="line">  [<span class="number">4</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"5_4"</span></div><div class="line">  [<span class="number">5</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"6_5"</span></div><div class="line">  [<span class="number">6</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"7_6"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>继续在PHP5 与 PHP 7中执行如下代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$stack = <span class="string">''</span>;</div><div class="line"></div><div class="line">$collections = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>];</div><div class="line"></div><div class="line"><span class="keyword">foreach</span>($collections <span class="keyword">as</span> $key =&gt; $collection) &#123;</div><div class="line">  var_dump($collection . <span class="string">'_'</span> . $key);</div><div class="line">  var_dump($stack);</div><div class="line">  $stack[$key] = $collection . <span class="string">'_'</span> . $key;</div><div class="line">  var_dump($stack);</div><div class="line">  <span class="keyword">exit</span>();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>PHP 7 中打印结果：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">string(<span class="number">3</span>) <span class="string">"1_0"</span></div><div class="line">string(<span class="number">0</span>) <span class="string">""</span></div><div class="line">string(<span class="number">1</span>) <span class="string">"1"</span></div></pre></td></tr></table></figure>
+<p>而PHP 5中打印结果：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">string(<span class="number">3</span>) <span class="string">"1_0"</span></div><div class="line">string(<span class="number">0</span>) <span class="string">""</span></div><div class="line"><span class="keyword">array</span>(<span class="number">1</span>) &#123;</div><div class="line">  [<span class="number">0</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"1_0"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果将变量<code>$stack = [];</code>赋值未数组，在PHP 5 与PHP 7中都是得到如上结果。</p>
+<p><code>foreach</code>函数在PHP 7中的变化</p>
+<ul>
+<li><p>foreach() 迭代不再影响数组内部指针，数组指针可通过 current()/next() 等系列的函数访问。例如：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; $array = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</div><div class="line">&gt;&gt;&gt; <span class="keyword">foreach</span> ($array <span class="keyword">as</span> &amp;$val) &#123;</div><div class="line">...     var_dump(current($array));</div><div class="line">... &#125;</div><div class="line">int(<span class="number">0</span>)</div><div class="line">int(<span class="number">0</span>)</div><div class="line">int(<span class="number">0</span>)</div></pre></td></tr></table></figure>
+<p>现在将指向值 int(0) 三次。以前的输出是 int(1)、int(2) 和 bool(false)。</p>
+</li>
+<li><p>在对数组按值迭代时，foreach 总是在对数组副本进行操作，在迭代中任何对数组的操作都不会影响到迭代行为。例如：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$array = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</div><div class="line">$ref =&amp; $array; <span class="comment">// Necessary to trigger the old behavior</span></div><div class="line"><span class="keyword">foreach</span> ($array <span class="keyword">as</span> $val) &#123;</div><div class="line">  var_dump($val);</div><div class="line">  <span class="keyword">unset</span>($array[<span class="number">1</span>]);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int(<span class="number">0</span>)</div><div class="line">int(<span class="number">1</span>)</div><div class="line">int(<span class="number">2</span>)</div></pre></td></tr></table></figure>
+<p>现在将打印出全部三个元素 (0 1 2)，而以前第二个元素 1 会跳过 (0 2)。</p>
+</li>
+<li><p>在对数组按引用迭代时，对数组的修改将继续会影响到迭代。不过，现在 PHP 在使用数字作为键时可以更好的维护数组内的位置。例如，在按引用迭代过程中添加数组元素：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$array = [<span class="number">0</span>];</div><div class="line"><span class="keyword">foreach</span> ($array <span class="keyword">as</span> &amp;$val) &#123;</div><div class="line">    var_dump($val);</div><div class="line">    $array[<span class="number">1</span>] = <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int(<span class="number">0</span>)</div><div class="line">int(<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<p>现在迭代会正确的添加了元素。如上代码输出是 “int(0) int(1)”，而以前只是 “int(0)”。</p>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://linux.cn/article-5840-1.html#4_4658" target="_blank" rel="external">https://linux.cn/article-5840-1.html#4_4658</a></li>
+<li><a href="http://codeday.me/bug/20170304/416.html" target="_blank" rel="external">PHP’foreach’实际上如何工作？</a></li>
+<li><a href="https://wiki.php.net/rfc/php7_foreach" target="_blank" rel="external">https://wiki.php.net/rfc/php7_foreach</a></li>
+</ul>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2017-05-15/fish-shell.html">macOS 安装 iTerm2 + Fish Shell</a>
         
       </h1>
