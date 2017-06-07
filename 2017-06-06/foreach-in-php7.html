@@ -50,7 +50,7 @@ PHP 7 UPGRADING
  PHP 7升级备注
 
 在PHP 5">
-<meta property="og:updated_time" content="2017-06-06T13:45:57.000Z">
+<meta property="og:updated_time" content="2017-06-07T06:10:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Foreach 函数在PHP 7 中的变化">
 <meta name="twitter:description" content="Foreach 函数在PHP 7中的变化PHP 7发布至今已有两年多的时间（7.0.0alpha1），相信大部分PHP开发者已经或者正在使用PHP7作为主要开发版本。不过，建议开发者在选择PHP7版本前，仔细认真浏览一下升级日志。作者在实际项目中就遇到了一个foreach函数在PHP 5 与PHP 7不同版本下难以发现之坑。
@@ -251,7 +251,7 @@ PHP 7 UPGRADING
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">string(<span class="number">3</span>) <span class="string">"1_0"</span></div><div class="line">string(<span class="number">0</span>) <span class="string">""</span></div><div class="line">string(<span class="number">1</span>) <span class="string">"1"</span></div></pre></td></tr></table></figure>
 <p>而PHP 5中打印结果：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">string(<span class="number">3</span>) <span class="string">"1_0"</span></div><div class="line">string(<span class="number">0</span>) <span class="string">""</span></div><div class="line"><span class="keyword">array</span>(<span class="number">1</span>) &#123;</div><div class="line">  [<span class="number">0</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"1_0"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果将变量<code>$stack = [];</code>赋值未数组，在PHP 5 与PHP 7中都是得到如上结果。</p>
+<p>如果将变量<code>$stack = [];</code>赋值为数组，在PHP 5 与PHP 7中都是得到如上结果。</p>
 <p><code>foreach</code>函数在PHP 7中的变化</p>
 <ul>
 <li><p>foreach() 迭代不再影响数组内部指针，数组指针可通过 current()/next() 等系列的函数访问。例如：</p>

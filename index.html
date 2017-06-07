@@ -232,7 +232,7 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">string(<span class="number">3</span>) <span class="string">"1_0"</span></div><div class="line">string(<span class="number">0</span>) <span class="string">""</span></div><div class="line">string(<span class="number">1</span>) <span class="string">"1"</span></div></pre></td></tr></table></figure>
 <p>而PHP 5中打印结果：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">string(<span class="number">3</span>) <span class="string">"1_0"</span></div><div class="line">string(<span class="number">0</span>) <span class="string">""</span></div><div class="line"><span class="keyword">array</span>(<span class="number">1</span>) &#123;</div><div class="line">  [<span class="number">0</span>]=&gt;</div><div class="line">  string(<span class="number">3</span>) <span class="string">"1_0"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果将变量<code>$stack = [];</code>赋值未数组，在PHP 5 与PHP 7中都是得到如上结果。</p>
+<p>如果将变量<code>$stack = [];</code>赋值为数组，在PHP 5 与PHP 7中都是得到如上结果。</p>
 <p><code>foreach</code>函数在PHP 7中的变化</p>
 <ul>
 <li><p>foreach() 迭代不再影响数组内部指针，数组指针可通过 current()/next() 等系列的函数访问。例如：</p>
